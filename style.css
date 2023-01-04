@@ -106,10 +106,14 @@
   
   /* Footer */
   .footer {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     background: #ddd;
     margin-top: 20px;
+    border-radius: 50px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
   }
   /* The switch - the box around the slider */
 .switch {
