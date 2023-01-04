@@ -38,8 +38,11 @@
   </div>
 
   <div class="rightcolumn">
-    <div class="card">
-      <h3>Add Mutations</h3>
+
+<button class="collapsible"><h3>Add Mutations</h3></button>
+<div class="content">
+  <div class="collapsecard">
+
       <div class="grayCard"> <span class="bolded">Beak:</span><br>
               <button id="bbtn1" class="beak-btn" onclick="enableBeak(1)" style="width:100%;padding: 5px;">Long and thin</button><br><!--goed voor insecten te eten--> 
               <button id="bbtn2" class="beak-btn" onclick="enableBeak(2)" style="width:100%;padding: 5px;">Short and thick</button><br><!--goed voor zaden te eten--> 
@@ -54,8 +57,12 @@
     </div><br>
       <div class="grayCard"><span class="bolded">Plumage color:</span></div>
     </div>    
-    <div class="card">
-      <h2>Environmental Factors</h2>
+</div>
+
+<button class="collapsible"><h3>Environmental Factors</h3></button>
+<div class="content">
+    <div class="collapsecard">
+
       <div class="grayCard"><span class="bolded">Food Available:</span><br>
         <input type="radio" id="food" class="food-btn" value="1">
         <label for="f1">Insects</label><br>
@@ -72,13 +79,13 @@
       </div>
       <div class="grayCard"><span class="bolded">Predators:</span><br>
 
-<label class="switch">
+<label class="switch" >
   <input type="checkbox">
   <span class="slider round"></span>
 </label>
       </div>
       <p>Some text about me </p>
-      
+      </div>
     </div>
     <div class="card">
       <h3>Follow Me</h3>
@@ -91,6 +98,21 @@
   <h2>Created By Youssouf & Cisse</h2><br>
 
 </div>
-
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } 
+    });
+  }
+  </script>
 </body>
 </html>
