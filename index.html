@@ -13,9 +13,10 @@
     <div class="card">
       <h2>SIMULATION SCREEN</h2>
 
-      <div class="grayCard" style="height:200px;">_______</div>
-      <p>_______</p>
-    </div>
+   
+      <div id="simulationBackground" class="img"></div></div>
+
+    
 
     <div class="column middle">
         <div class="card">
@@ -56,9 +57,9 @@
       <button onclick="enableSize('reset')">Reset</button>
     </div><br>
       <div class="grayCard"><span class="bolded">Plumage color:</span><br>
-        <button id="cbtn1" class="color-btn" onclick="enableColor(1)" style="width:100%;padding: 5px;background-color:saddlebrown ;">Brown</button><br><!--goed voor insecten te eten--> 
-        <button id="cbtn2" class="color-btn" onclick="enableColor(2)" style="width:100%;padding: 5px;background-color: white;margin-top: 5px;">White</button><br><!--goed voor zaden te eten--> 
-        <button id="cbtn3" class="color-btn" onclick="enableColor(3)" style="width:100%;padding: 5px;background-color: lime;margin-top: 5px;">Green</button><br> <!--goed voor nectar te eten--> 
+        <button id="cbtn1" class="color-btn" onclick="enableColor(1)" style="width:100%;padding: 5px;background-color:saddlebrown ;">Brown</button><br>
+        <button id="cbtn2" class="color-btn" onclick="enableColor(2)" style="width:100%;padding: 5px;background-color: white;margin-top: 5px;">White</button><br>
+        <button id="cbtn3" class="color-btn" onclick="enableColor(3)" style="width:100%;padding: 5px;background-color: lime;margin-top: 5px;">Green</button><br>  
         <button onclick="enableColor('reset')">Reset</button>
       </div>
     </div>    
@@ -80,7 +81,10 @@
         <button onclick="enableFood('reset')">Reset</button>
       </div><br>
       <div class="grayCard"><span class="bolded">Environment:</span><br>
-        hot cold idk
+        <button id="envbtn1" class="env-btn" onclick="enableEnv(1)" style="width:100%;padding: 5px;">Forest</button><br>
+        <button id="envbtn2" class="env-btn" onclick="enableEnv(2)" style="width:100%;padding: 5px;">Tundra</button><br>
+        <button id="envbtn3" class="env-btn" onclick="enableEnv(3)" style="width:100%;padding: 5px;">Jungle</button><br> 
+        <button onclick="enableEnv('reset')">Reset</button>
       </div>
       <div class="grayCard"><span class="bolded">Predators:</span><br>
 

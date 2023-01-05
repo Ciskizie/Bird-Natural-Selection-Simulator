@@ -122,3 +122,36 @@ function enableColor(n) {
     });
   }
 }
+
+function enableEnv(n) { //TURN INTO RADIO
+  if (n === 1) {                                  //forest
+    const btn = document.getElementById('envbtn1');
+    btn.style.backgroundColor = "gray";
+    document.getElementById('simulationBackground').innerHTML = '<img src="https://png.pngtree.com/thumb_back/fh260/back_our/20200630/ourmid/pngtree-green-small-fresh-forest-banner-image_340877.jpg">';
+    
+
+  } else if (n === 2) {                           //tundra
+    const btn = document.getElementById('envbtn2');
+    btn.style.backgroundColor = "gray";
+    document.getElementById('simulationBackground').innerHTML = '<img src="https://i.pinimg.com/736x/b5/0e/d3/b50ed315eb512a081ec97ec5c8cf04ea.jpg">';
+
+    
+
+  } else if (n === 3) {                           //jungle
+    const btn = document.getElementById('envbtn3');
+    btn.style.backgroundColor = "gray";
+
+
+    
+
+
+  } else if (n === 'reset') {
+    const btns = document.querySelectorAll('.env-btn');
+    btns.forEach(btn => {
+      btn.style.backgroundColor = "";
+      document.getElementById('simulationBackground').innerHTML = "simulationBackground"
+    });
+    let size = "small";
+    console.log("birdsize is reset to ",size)
+  }
+}
