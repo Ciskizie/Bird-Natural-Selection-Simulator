@@ -106,7 +106,7 @@ function enableFood(n) {
 function enableColor(n) {
   if (n === 1) {                                  
     const btn = document.getElementById('cbtn1');
-    btn.style.backgroundColor = "saddlebrown";
+    btn.style.backgroundColor = "sienna";
   } else if (n === 2) {
     const btn = document.getElementById('cbtn2');
     btn.style.backgroundColor = "";
@@ -116,7 +116,7 @@ function enableColor(n) {
   } else if (n === 'reset') {
     const btns = document.querySelectorAll('.color-btn');
     btns.forEach(btn => {
-      cbtn1.style.backgroundColor = "sienna";
+      cbtn1.style.backgroundColor = "saddlebrown";
       cbtn2.style.backgroundColor = "white";
       cbtn3.style.backgroundColor = "lime";
     });
