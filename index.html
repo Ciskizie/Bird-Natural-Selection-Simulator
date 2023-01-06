@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +15,7 @@
       <h2>SIMULATION SCREEN</h2>
 
    
-      <div id="simulationBackground" class="img"></div></div>
+      <div id="simulationBackground" class="img"><img src="https://png.pngtree.com/thumb_back/fh260/back_our/20200630/ourmid/pngtree-green-small-fresh-forest-banner-image_340877.jpg"></div></div>
 
     
 
@@ -80,12 +81,17 @@
         <label for="f3">Nectar</label><br>
         <button onclick="enableFood('reset')">Reset</button>
       </div><br>
+      
       <div class="grayCard"><span class="bolded">Environment:</span><br>
-        <button id="envbtn1" class="env-btn" onclick="enableEnv(1)" style="width:100%;padding: 5px;">Forest</button><br>
-        <button id="envbtn2" class="env-btn" onclick="enableEnv(2)" style="width:100%;padding: 5px;">Tundra</button><br>
-        <button id="envbtn3" class="env-btn" onclick="enableEnv(3)" style="width:100%;padding: 5px;">Jungle</button><br> 
-        <button onclick="enableEnv('reset')">Reset</button>
+        <div id="simBackground">
+          <form id="simBackground">
+          <input type="radio" id="Forest" name="simBackground" value="Forest" onclick="enableEnv(1)" checked="checked"> Forest <br>
+          <input type="radio" id="Tundra" name="simBackground" value="Tundra" onclick="enableEnv(2)"> Tundra <br>
+          <input type="radio" id="Jungle" name="simBackground" value="Jungle" onclick="enableEnv(3)"> Jungle <br>
+          <form>
+          </div>
       </div>
+
       <div class="grayCard"><span class="bolded">Predators:</span><br>
 
 <label class="switch" >
