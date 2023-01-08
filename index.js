@@ -12,6 +12,38 @@ let availableFood = "seeds" //["seeds","insects","nectar"];
 let predators = false;
 let area = "forest" //["forest","jungle","tundra"] 
 
+//Summon first bird on load
+window.onload = function() {
+ 
+    var startbird = document.createElement('div');
+    startbird.classList.add('startbox');
+    startbird.id = "startbird"
+    document.querySelector('.main').appendChild(startbird);
+    document.getElementById('startbird').innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
+
+
+  var startboxes = document.querySelectorAll('.startbox');
+  startboxes.forEach(function(startbox) {
+    startbox.style.left = "60%";
+    startbox.style.top = "35%";
+  });
+};
+
+function startSimulation(){
+  // Add Second Bird
+    var box = document.createElement('div');
+    box.classList.add('box');
+    document.querySelector('.main').appendChild(box);
+  
+
+  var boxes = document.querySelectorAll('.box');
+  boxes.forEach(function(box) {
+    
+  });
+    // Make the button disappear
+    document.getElementById("startbtn").style.display = 'none';
+};
+
 
 
 function enableBeak(n) {
@@ -48,42 +80,7 @@ function enableBeak(n) {
     console.log("birdbeak is reset to ",beakForm);
   }
 }
-function enableSize(n) {
-  if (n === 1) {                                  //small
-    const btn = document.getElementById('sbtn1');
-    btn.style.backgroundColor = "gray";
-    if(size = "small"){
-      console.log("bird is small size");
 
-    }
-
-  } else if (n === 2) {                           //medium
-    const btn = document.getElementById('sbtn2');
-    btn.style.backgroundColor = "gray";
-    if(size = "medium"){
-      console.log("bird is medium size");
-
-    }
-
-  } else if (n === 3) {                           //large
-    const btn = document.getElementById('sbtn3');
-    btn.style.backgroundColor = "gray";
-    if(size = "large"){
-      console.log("bird is large size");
-
-    }
-
-
-  } else if (n === 'reset') {
-    const btns = document.querySelectorAll('.size-btn');
-    btns.forEach(btn => {
-      btn.style.backgroundColor = "";
- 
-    });
-    let size = "small";
-    console.log("birdsize is reset to ",size)
-  }
-}
 
 function enableFood(n) {
   if (n === 1) {
@@ -124,7 +121,7 @@ function enableColor(n) {
 }
 
 //environment
-function enableEnv(n) { //TURN INTO RADIO
+function enableEnv(n) { 
   if (n === 1) {                                  //forest
     const btn = document.getElementById('Forest');
     btn.style.backgroundColor = "gray";
