@@ -14,7 +14,9 @@ let area = "forest" //["forest","jungle","tundra"]
 
 //Summon first bird on load
 window.onload = function() {
- 
+  
+  document.getElementById("generationNumber").innerHTML = Generation; // generation 0 on bar
+
     var startbird = document.createElement('div');
     startbird.classList.add('startbox');
     startbird.id = "startbird";
@@ -24,8 +26,15 @@ window.onload = function() {
 
   var startboxes = document.querySelectorAll('.startbox');
   startboxes.forEach(function(startbox) {
-    startbox.style.left = "60%"; //max 80%
-    startbox.style.top = "35%"; //max 65%
+    let x = Math.random() * 80;
+    x = Math.floor(x);
+
+    let y = Math.random() * 65;
+    y = Math.floor(y);
+
+    console.log(x,y)
+    startbox.style.left = x + "%";
+    startbox.style.top = y + "%"
   });
 };
 
@@ -37,8 +46,8 @@ function startSimulation(){
     document.querySelector('.main').appendChild(bird);
     document.getElementById('bird').innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
 
-  var boxes = document.querySelectorAll('.box');
-  boxes.forEach(function(box) {
+    var boxes = document.querySelectorAll('.box');
+    boxes.forEach(function(box) {
     let x = Math.random() * 80;
     x = Math.floor(x);
 
@@ -51,7 +60,46 @@ function startSimulation(){
   });
     // Make the button disappear
     document.getElementById("startbtn").style.display = 'none';
-};
+
+    //move the Generation Bar
+    var i = 0;
+
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 30); //duration
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+
+      }
+      let nextGen = document.getElementById("myBar").offsetWidth
+      console.log(nextGen)
+      if(nextGen === 98 ){
+        console.log("check")
+        Generation =+ 1 // generation + 1
+        document.getElementById("generationNumber").innerHTML = Generation;
+        elem.style.width = "0%";
+        loop()
+        
+
+      }
+    }
+  }
+}; // END OF startSimulation
+
+function loop(){
+  document.getElementById("generationNumber").innerHTML = Generation
+    if(Generation != 0){
+      i == 0
+      console.log("test")
+    }
+  }
 
 
 

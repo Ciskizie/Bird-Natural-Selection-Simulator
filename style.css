@@ -73,6 +73,18 @@ width: 20%;
     transition: max-height 0.2s ease-out;
     background-color: #f1f1f1;
   }
+  #myProgress {
+    width: 100%;
+    background-color: grey;
+    border-radius: 20px;
+  }
+  
+  #myBar {
+    width: 0%;
+    height: 20px;
+    background-color: green;
+    border-radius: 20px;
+  }
   .bolded { font-weight: bold; }
   /* Create two unequal columns that floats next to each other */
   /* Left column */
