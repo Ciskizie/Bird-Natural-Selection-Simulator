@@ -14,6 +14,7 @@
     position: absolute;
     top: 100px;
     left: 100px;
+    width: 20%;
         
 }
 .main {
@@ -30,10 +31,8 @@ width: 20%;
   /* parent width - box width */
 }
 .box {
-  width: 10px;
-  height: 10px;
-  background: #e00;
-  border-radius: 50px;
+  width: 20%;
+
   position: absolute;
   /* parent width - box width */
 }

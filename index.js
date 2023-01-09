@@ -17,28 +17,37 @@ window.onload = function() {
  
     var startbird = document.createElement('div');
     startbird.classList.add('startbox');
-    startbird.id = "startbird"
+    startbird.id = "startbird";
     document.querySelector('.main').appendChild(startbird);
     document.getElementById('startbird').innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
 
 
   var startboxes = document.querySelectorAll('.startbox');
   startboxes.forEach(function(startbox) {
-    startbox.style.left = "60%";
-    startbox.style.top = "35%";
+    startbox.style.left = "60%"; //max 80%
+    startbox.style.top = "35%"; //max 65%
   });
 };
 
 function startSimulation(){
   // Add Second Bird
-    var box = document.createElement('div');
-    box.classList.add('box');
-    document.querySelector('.main').appendChild(box);
-  
+    var bird = document.createElement('div');
+    bird.classList.add('box');
+    bird.id = "bird";
+    document.querySelector('.main').appendChild(bird);
+    document.getElementById('bird').innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
 
   var boxes = document.querySelectorAll('.box');
   boxes.forEach(function(box) {
-    
+    let x = Math.random() * 80;
+    x = Math.floor(x);
+
+    let y = Math.random() * 65;
+    y = Math.floor(y);
+
+    console.log(x,y)
+    box.style.left = x + "%";
+    box.style.top = y + "%"
   });
     // Make the button disappear
     document.getElementById("startbtn").style.display = 'none';
