@@ -93,46 +93,6 @@ function startSimulation(){
     
 }; // END OF startSimulation
 
-/*function loop(){
-  document.getElementById("generationNumber").innerHTML = Generation
-
-      
-      console.log("loopcheck")
-      var i = 0;
-
-      if (i == 0) {
-        i = 1;
-        var elem = document.getElementById("myBar");
-        var width = 1;
-        var id = setInterval(frame, 10); //duration
-        function frame() {
-          if (width >= 100) {
-            clearInterval(id);
-            i = 0;
-          } else {
-            width++;
-            elem.style.width = width + "%";
-    
-          }
-          let barPercentage = document.getElementById("myBar").offsetWidth
-          console.log(barPercentage)
-          if(barPercentage === 98 ){
-            
-            console.log("check", Generation)
-            
-            Generation += 1 // generation + 1
-            document.getElementById("generationNumber").innerHTML = Generation;
-            elem.style.width = "0%";
-            loop()
-            
-    
-          }
-        }
-      }
-     }
-
-*/
-
 function enableBeak(n) {
   if (n === 1) {                                  //long and thin
     const btn = document.getElementById('bbtn1');
