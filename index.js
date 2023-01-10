@@ -64,37 +64,36 @@ function startSimulation(){
     //move the Generation Bar
     
     var i = 0;
-
-  if (i == 0) {
-    i = 1;
-    var elem = document.getElementById("myBar");
-    var width = 1;
-    var id = setInterval(frame, 50); //duration
-    function frame() {
-      if (width >= 100) {
-        clearInterval(id);
-        i = 0;
-      } else {
-        width++;
-        elem.style.width = width + "%";
-
-      }
-      let barPercentage = document.getElementById("myBar").offsetWidth
-      console.log(barPercentage)
-      if(barPercentage === 98 ){
-        console.log("check")
-        Generation = Generation + 1 // generation + 1
-        document.getElementById("generationNumber").innerHTML = Generation;
-        elem.style.width = "0%";
-        loop()
+    var Generation = 0;
+    
+    function progressBar() {
+      if (i == 0) {
+        i = 1;
+        var elem = document.getElementById("myBar");
+        var width = 1;
         
-
+        var id = setInterval(frame, 5); //duration
+        function frame() {
+          if (width >= 100) {
+            clearInterval(id);
+            i = 0;
+            Generation += 1 // generation + 1
+            document.getElementById("generationNumber").innerHTML = Generation;
+            elem.style.width = "0%";
+            progressBar(); // call the function again to loop
+          } else {
+            width++;
+            elem.style.width = width + "%";
+            console.log(elem.offsetWidth)
+          }
+        }
       }
     }
-  }
+    progressBar();
+    
 }; // END OF startSimulation
 
-function loop(){
+/*function loop(){
   document.getElementById("generationNumber").innerHTML = Generation
 
       
@@ -132,7 +131,7 @@ function loop(){
       }
      }
 
-
+*/
 
 function enableBeak(n) {
   if (n === 1) {                                  //long and thin
