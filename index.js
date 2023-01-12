@@ -69,6 +69,7 @@ function startSimulation(){
   });
     // Make the button disappear
     document.getElementById("startbtn").style.display = 'none';
+   
 
     //move the Generation Bar
     
@@ -76,13 +77,12 @@ function startSimulation(){
     var Generation = 0;
     
     function progressBar() {
-      if (i == 0) {
+      if (i == 0 ) {
         i = 1;
         var elem = document.getElementById("myBar");
         var width = 1;
-        
-        var id = setInterval(frame, 10); //speed
-      
+        id = setInterval(frame, 50);//speed
+        running = true;
         function frame() {
           if (width >= 100) {
             clearInterval(id);
@@ -104,10 +104,24 @@ function startSimulation(){
             //console.log(elem.offsetWidth)
             
           }
+          document.getElementById("pausebtn").addEventListener("click", function(){
+            if(running){
+              clearInterval(id);
+              running = false;
+              this.innerHTML = "Resume"
+            }else{
+              id = setInterval(frame, 50);//speed
+              running = true;
+              this.innerHTML = "Pause"
+            }
+          });
         }
       }
     }
+
     progressBar();
+
+  
     
 }; // END OF startSimulation
 function birdReproduction(){
