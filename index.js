@@ -1,6 +1,6 @@
 let birdCount = 1; //finches
 let Generation = 0; 
-let MutationRate= 0.1; //IDK YET
+//let MutationRate= 0.1; //IDK YET
 
 //traits (default settings: Short and thick beak(for seeds), Small size, Brown feathers)
 let beakForm = "shortthick"  //["longthin","shortthick","longcurved"];
@@ -43,6 +43,7 @@ function startSimulation(){
     var bird = document.createElement('div');
     bird.classList.add('box');
     bird.id = "bird";
+    
     document.querySelector('.main').appendChild(bird);
     document.getElementById('bird').innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
 
@@ -72,7 +73,7 @@ function startSimulation(){
         var elem = document.getElementById("myBar");
         var width = 1;
         
-        var id = setInterval(frame, 5); //duration
+        var id = setInterval(frame, 50); //duration
         function frame() {
           if (width >= 100) {
             clearInterval(id);
@@ -97,7 +98,7 @@ function enableBeak(n) {
   if (n === 1) {                                  //long and thin
     const btn = document.getElementById('bbtn1');
     btn.style.backgroundColor = "gray";
-    if(availableFood = "insects"){
+    if(availableFood == "insects"){
       console.log("bird can eat insects -> survive");
 
     }
@@ -113,7 +114,7 @@ function enableBeak(n) {
   } else if (n === 3) {                           //long and curved
     const btn = document.getElementById('bbtn3');
     btn.style.backgroundColor = "gray";
-    if(availableFood = "nectar"){
+    if(availableFood == "nectar"){
       console.log("bird can eat nectar -> survive");
 
     }
@@ -131,14 +132,15 @@ function enableBeak(n) {
 
 function enableFood(n) {
   if (n === 1) {
-    const food = document.getElementById('food').checked.value(1);
-
+    const food = document.getElementById('food1').value;
+    console.log(food)
   } else if (n === 2) {
-    const food = document.getElementById('food').value;
+    const food = document.getElementById('food2').value;
+    console.log(food)
 
   } else if (n === 3) {
-    const food = document.getElementById('food').value;
-
+    const food = document.getElementById('food3').value;
+    console.log(food)
   } else if (n === 'reset') {
     const btns = document.querySelectorAll('.food-btn');
     btns.forEach(food => {
