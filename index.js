@@ -12,6 +12,7 @@ let availableFood = "seeds" //["seeds","insects","nectar"];
 let predators = false;
 let area = "forest" //["forest","jungle","tundra"] 
 
+let addBirdAmount = 0
 //Summon first bird on load
 window.onload = function() {
   
@@ -26,10 +27,10 @@ window.onload = function() {
 
   var startboxes = document.querySelectorAll('.startbox');
   startboxes.forEach(function(startbox) {
-    let x = Math.random() * 80;
+    let x = Math.random() * 86;
     x = Math.floor(x);
 
-    let y = Math.random() * 65;
+    let y = Math.random() * 74;
     y = Math.floor(y);
 
     console.log(x,y)
@@ -39,25 +40,32 @@ window.onload = function() {
 };
 
 function startSimulation(){
+  birdCount +=1
+  console.log("amount of birds is",birdCount);
   // Add Second Bird
+
+  for (var i = 0; i < 1; i++) {
     var bird = document.createElement('div');
     bird.classList.add('box');
     bird.id = "bird";
     
     document.querySelector('.main').appendChild(bird);
-    document.getElementById('bird').innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
 
+   }
     var boxes = document.querySelectorAll('.box');
     boxes.forEach(function(box) {
-    let x = Math.random() * 80;
-    x = Math.floor(x);
+      box.innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
 
-    let y = Math.random() * 65;
-    y = Math.floor(y);
+      let x = Math.random() * 86;
+      x = Math.floor(x);
+  
+      let y = Math.random() * 74;
+      y = Math.floor(y);
 
     console.log(x,y)
     box.style.left = x + "%";
     box.style.top = y + "%"
+    
   });
     // Make the button disappear
     document.getElementById("startbtn").style.display = 'none';
@@ -73,19 +81,28 @@ function startSimulation(){
         var elem = document.getElementById("myBar");
         var width = 1;
         
-        var id = setInterval(frame, 50); //duration
+        var id = setInterval(frame, 10); //speed
+      
         function frame() {
           if (width >= 100) {
             clearInterval(id);
             i = 0;
-            Generation += 1 // generation + 1
-            document.getElementById("generationNumber").innerHTML = Generation;
+           
             elem.style.width = "0%";
-            progressBar(); // call the function again to loop
+            
+            if(addBirdAmount < 972){
+              Generation += 1 // generation + 1
+              document.getElementById("generationNumber").innerHTML = Generation;
+              birdReproduction();
+              progressBar(); // call the function again to loop
+          } else {
+              document.getElementById("title").innerHTML = "Birds Dominate the Planet!     (population reached the max limit)"
+            }
           } else {
             width++;
             elem.style.width = width + "%";
-            console.log(elem.offsetWidth)
+            //console.log(elem.offsetWidth)
+            
           }
         }
       }
@@ -93,6 +110,39 @@ function startSimulation(){
     progressBar();
     
 }; // END OF startSimulation
+function birdReproduction(){
+  let newbirdCount = birdCount * 3
+  console.log("amount of birds is",newbirdCount);
+  addBirdAmount = newbirdCount - birdCount;
+  console.log(addBirdAmount,"=addbirdamount")
+  birdCount = newbirdCount;
+
+  for (var i = 0; i < addBirdAmount; i++) {
+    var bird = document.createElement('div');
+    bird.classList.add('box');
+    bird.id = "bird";
+    
+    document.querySelector('.main').appendChild(bird);
+
+   }
+    var boxes = document.querySelectorAll('.box');
+    boxes.forEach(function(box) {
+      box.innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
+
+      let x = Math.random() * 86;
+      x = Math.floor(x);
+  
+      let y = Math.random() * 74;
+      y = Math.floor(y);
+
+    
+    box.style.left = x + "%";
+    box.style.top = y + "%"
+    
+  });
+
+}
+
 
 function enableBeak(n) {
   if (n === 1) {                                  //long and thin

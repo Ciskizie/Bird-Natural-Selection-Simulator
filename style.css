@@ -25,13 +25,13 @@
 }
 
 .startbox {
-width: 20%;
+width: 15%;
 
   position: absolute;
   /* parent width - box width */
 }
 .box {
-  width: 20%;
+  width: 15%;
 
   position: absolute;
   /* parent width - box width */
