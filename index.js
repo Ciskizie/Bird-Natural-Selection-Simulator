@@ -13,6 +13,7 @@ let predators = false;
 let area = "forest" //["forest","jungle","tundra"] 
 
 let addBirdAmount = 0
+
 //Summon first bird on load
 window.onload = function() {
   
@@ -74,7 +75,7 @@ function startSimulation(){
     //move the Generation Bar
     
     var i = 0;
-    var Generation = 0;
+    let Generation = 0;
     
     function progressBar() {
       if (i == 0 ) {
@@ -92,6 +93,8 @@ function startSimulation(){
             
             if(addBirdAmount < 972){
               Generation += 1 // generation + 1
+              console.log("generation is",Generation)
+              
               document.getElementById("generationNumber").innerHTML = Generation;
               birdReproduction();
               progressBar(); // call the function again to loop
@@ -122,23 +125,38 @@ function startSimulation(){
     progressBar();
 
   
-    
+
 }; // END OF startSimulation
+
 function birdReproduction(){
+  Generation += 1 // generation + 1
+  console.log("inside function gen",Generation);
+  let birdGen = Generation; 
+
   let newbirdCount = birdCount * 3
   console.log("amount of birds is",newbirdCount);
   addBirdAmount = newbirdCount - birdCount;
   console.log(addBirdAmount,"=addbirdamount")
   birdCount = newbirdCount;
 
+  let genUpS = "gen"  
+  let genUpN = birdGen; //!!!!!
+  let genUp = `${genUpS}${genUpN}`;
+  console.log(genUp,"genup");
+  console.log(birdGen,"birdgen")
+
   for (var i = 0; i < addBirdAmount; i++) {
     var bird = document.createElement('div');
     bird.classList.add('box');
+
+    bird.classList.add(genUp)
     bird.id = "bird";
     
     document.querySelector('.main').appendChild(bird);
-
    }
+if(Generation == 2){
+   var del = document.getElementsByClassName("box gen1")
+   del.remove;}
     var boxes = document.querySelectorAll('.box');
     boxes.forEach(function(box) {
       box.innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
@@ -151,7 +169,7 @@ function birdReproduction(){
 
     
     box.style.left = x + "%";
-    box.style.top = y + "%"
+    box.style.top = y + "%";
     
   });
 
