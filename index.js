@@ -84,7 +84,7 @@ function startSimulation() {
       i = 1;
       var elem = document.getElementById("myBar");
       var width = 1;
-      id = setInterval(frame, 30);//speed
+      id = setInterval(frame, 50);//speed
       running = true;
       function frame() {
         if (width >= 100) {
@@ -98,7 +98,7 @@ function startSimulation() {
             console.log("generation is", Generation)
 
             document.getElementById("generationNumber").innerHTML = Generation;
-            birdTerminator();
+            //birdTerminator();
 
             birdReproduction();
 
@@ -118,7 +118,7 @@ function startSimulation() {
             running = false;
             this.innerHTML = "Resume"
           } else {
-            id = setInterval(frame, 30);//speed
+            id = setInterval(frame, 50);//speed
             running = true;
             this.innerHTML = "Pause"
           }
@@ -154,10 +154,12 @@ function birdReproduction() {
   if (boxClassAmount > 250){
     let = randomFloat = Math.random() * (3.5-2.5)+ 2.5;
     console.log(randomFloat)
-
-    addBirdAmount = boxClassAmount/randomFloat
+    
+    addBirdAmount = boxClassAmount/randomFloat //NIET GOED
     } else{
-      addBirdAmount = boxClassAmount*3 //FIKSKSKSKKKEN
+      birdCount = boxClassAmount*3
+  console.log(birdCount, 'this is birdCount')
+  addBirdAmount = birdCount - boxClassAmount;
     }
       console.log(addBirdAmount, "=addbirdamount")
       
