@@ -1,202 +1,222 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
 
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+    integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="index.js"></script>
 
 
 
-<div class="row">
-  <div class="leftcolumn">
-    <div class="card" >
-      <h2 id="title">SIMULATION SCREEN</h2>
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h2 id="title">SIMULATION SCREEN</h2>
 
-      <div style="display:table;margin: 0 auto;margin-bottom: -10px;"> <span class="bolded" style="display:table;margin: 0 auto;margin-bottom: -20px;">Generation <span id="generationNumber"></span></span><br>
-        <div id="myProgress">
-          <div id="myBar"></div>
+        <div style="display:table;margin: 0 auto;margin-bottom: -10px;margin-top: -40px;"> <span class="bolded"
+            style="display:table;margin: 0 auto;margin-bottom: -20px;">Generation <span
+              id="generationNumber"></span></span><br>
+          <div id="myProgress">
+            <div id="myBar"></div>
+          </div>
+        </div>
+        <div class="main">
+          <div id="simulationBackground" class="img"><img
+              src="https://png.pngtree.com/thumb_back/fh260/back_our/20200630/ourmid/pngtree-green-small-fresh-forest-banner-image_340877.jpg">
+          </div>
+
+        </div>
+        <button id="startbtn" onclick="startSimulation()" style="width: 20%;padding: 5px;margin-left: 40%;">Add
+          Mate</button>
+        <button id="pausebtn"
+          style="width: 10%;padding: 5px;float: right;margin-right: 25px;margin-top: -15px;">Pause</button>
+      </div>
+
+
+
+      <div class="column middle">
+
+      </div>
+
+
+      <div class="card">
+        <h2>GRAFIEK</h2>
+        <canvas id="myChart"></canvas>
+
+        <script>
+          //setup chart
+          const labels = [0];
+          const data = {
+            labels: labels,
+            datasets: [{
+              label: 'Bird Population',
+              data: [1],
+              fill: false,
+              borderColor: 'rgb(75, 192, 192)',
+
+              stepped: true
+            }]
+          };
+          //config chart
+          const config = {
+            type: 'line',
+            data: data,
+            options: {
+              responsive: true,
+              interaction: {
+                intersect: false,
+                axis: 'x'
+              },
+              "plugins": {
+                "legend": {
+                  "display": true,
+                  "position": "left",
+                  "align": "start"
+                }
+              }
+            }
+          };
+          //render chart
+          var chart = new Chart(document.getElementById("myChart"), config);
+
+          function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets.forEach((dataset) => {
+              dataset.data.push(data);
+            });
+            chart.update();
+          }
+
+          function removeData(chart) {
+            chart.data.labels.pop();
+            chart.data.datasets.forEach((dataset) => {
+              dataset.data.pop();
+            });
+            chart.update();
+          }
+
+        </script>
+
+
+
+
+
+      </div>
+
+    </div>
+
+    <div class="rightcolumn">
+
+      <button class="collapsible">
+        <h3>Add Mutations</h3>
+      </button>
+      <div class="content">
+        <div class="collapsecard">
+
+          <div class="grayCard"> <span class="bolded">Beak:</span><br>
+            <button id="bbtn1" class="beak-btn" onclick="enableBeak(1)" style="width:100%;padding: 5px;">Long and
+              thin</button><br><!--goed voor insecten te eten-->
+            <button id="bbtn2" class="beak-btn" onclick="enableBeak(2)" style="width:100%;padding: 5px;">Short and
+              thick</button><br><!--goed voor zaden te eten-->
+            <button id="bbtn3" class="beak-btn" onclick="enableBeak(3)" style="width:100%;padding: 5px;">Long and
+              curved</button><br> <!--goed voor nectar te eten-->
+            <button onclick="enableBeak('reset')">Reset</button>
+          </div><br>
+
+          <div class="grayCard"><span class="bolded">Plumage color:</span><br>
+            <button id="cbtn1" class="color-btn" onclick="enableColor(1)"
+              style="width:100%;padding: 5px;background-color:saddlebrown ;">Brown</button><br>
+            <button id="cbtn2" class="color-btn" onclick="enableColor(2)"
+              style="width:100%;padding: 5px;background-color: white;margin-top: 5px;">White</button><br>
+            <button id="cbtn3" class="color-btn" onclick="enableColor(3)"
+              style="width:100%;padding: 5px;background-color: lime;margin-top: 5px;">Green</button><br>
+            <button onclick="enableColor('reset')">Reset</button>
+          </div>
         </div>
       </div>
-      <div class="main">     
-      <div id="simulationBackground" class="img"><img src="https://png.pngtree.com/thumb_back/fh260/back_our/20200630/ourmid/pngtree-green-small-fresh-forest-banner-image_340877.jpg">
-      </div>
-        
-      </div>
-      <button id="startbtn"  onclick="startSimulation()" style="width: 20%;padding: 5px;margin-left: 40%;">Add Mate</button>
-      <button id="pausebtn"   style="width: 10%;padding: 5px;float: right;margin-right: 25px;margin-top: -15px;">Pause</button></div>
 
-    
+      <button class="collapsible">
+        <h3>Environmental Factors</h3>
+      </button>
+      <div class="content">
+        <div class="collapsecard">
 
-    <div class="column middle">
-        <div class="card">
-        <h2>LEGENDA=====</h2>
+          <div class="grayCard"><span class="bolded">Food Available:</span><br>
+            <input type="radio" id="food1" class="food-btn" value="Insects" onclick="enableFood(1)">
+            <label for="f1">Insects</label><br>
 
-        <div class="grayCard" style="height:200px;">_______</div>
-        <p>_______</p>
-      </div>
-    </div>
-  
-      <div class="column right">
-        <div class="card">
-        <h2>GRAFIEK</h2>
-        <canvas id="myChart" ></canvas>
+            <input type="radio" id="food2" class="food-btn" value="Seeds" onclick="enableFood(2)">
+            <label for="f2">Seeds</label><br>
 
-       <script>
-        //setup chart
-        const labels = [0];
-        const data = {
-          labels: labels,
-          datasets: [{
-            label: 'Bird Population',
-            data: [0],
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-   
-            stepped: true
-          }]
-        };
-        //config chart
-        const config = {
-          type: 'line',
-          data: data,
-          options: {
-            responsive: true,
-            interaction: {
-              intersect: false,
-              axis: 'x'
-            },
+            <input type="radio" id="food3" class="food-btn" value="Nectar" onclick="enableFood(3)">
+            <label for="f3">Nectar</label><br>
+            <button onclick="enableFood('reset')">Reset</button>
+          </div><br>
 
-          }
-        };
-        //render chart
-        var chart = new Chart(document.getElementById("myChart"),config);
-        
-        function addData(chart, label, data) {
-          chart.data.labels.push(label);
-          chart.data.datasets.forEach((dataset) => {
-          dataset.data.push(data);
-          });
-        chart.update();
-      }
-
-      function removeData(chart) {
-        chart.data.labels.pop();
-        chart.data.datasets.forEach((dataset) => {
-        dataset.data.pop();
-          });
-      chart.update();
-}
- 
-
-
-     </script>
-          
-
-
-
- 
-      </div>
-    </div>
-   
-  </div>
-
-  <div class="rightcolumn">
-
-<button class="collapsible"><h3>Add Mutations</h3></button>
-<div class="content">
-  <div class="collapsecard">
-
-      <div class="grayCard"> <span class="bolded">Beak:</span><br>
-              <button id="bbtn1" class="beak-btn" onclick="enableBeak(1)" style="width:100%;padding: 5px;">Long and thin</button><br><!--goed voor insecten te eten--> 
-              <button id="bbtn2" class="beak-btn" onclick="enableBeak(2)" style="width:100%;padding: 5px;">Short and thick</button><br><!--goed voor zaden te eten--> 
-              <button id="bbtn3" class="beak-btn" onclick="enableBeak(3)" style="width:100%;padding: 5px;">Long and curved</button><br> <!--goed voor nectar te eten--> 
-              <button onclick="enableBeak('reset')">Reset</button>
-    </div><br>
-
-      <div class="grayCard"><span class="bolded">Plumage color:</span><br>
-        <button id="cbtn1" class="color-btn" onclick="enableColor(1)" style="width:100%;padding: 5px;background-color:saddlebrown ;">Brown</button><br>
-        <button id="cbtn2" class="color-btn" onclick="enableColor(2)" style="width:100%;padding: 5px;background-color: white;margin-top: 5px;">White</button><br>
-        <button id="cbtn3" class="color-btn" onclick="enableColor(3)" style="width:100%;padding: 5px;background-color: lime;margin-top: 5px;">Green</button><br>  
-        <button onclick="enableColor('reset')">Reset</button>
-      </div>
-    </div>    
-</div>
-
-<button class="collapsible"><h3>Environmental Factors</h3></button>
-<div class="content">
-    <div class="collapsecard">
-
-      <div class="grayCard"><span class="bolded">Food Available:</span><br>
-        <input type="radio" id="food1" class="food-btn" value="Insects" onclick="enableFood(1)">
-        <label for="f1">Insects</label><br>
-
-        <input type="radio" id="food2"  class="food-btn" value="Seeds" onclick="enableFood(2)">
-        <label for="f2">Seeds</label><br>
-
-        <input type="radio" id="food3" class="food-btn" value="Nectar" onclick="enableFood(3)">
-        <label for="f3">Nectar</label><br>
-        <button onclick="enableFood('reset')">Reset</button>
-      </div><br>
-      
-      <div class="grayCard"><span class="bolded">Environment:</span><br>
-        <div id="simBackground">
-          <form id="simBackground">
-          <input type="radio" id="Forest" name="simBackground" value="Forest" onclick="enableEnv(1)" checked="checked"> Forest <br>
-          <input type="radio" id="Tundra" name="simBackground" value="Tundra" onclick="enableEnv(2)"> Tundra <br>
-          <input type="radio" id="Jungle" name="simBackground" value="Jungle" onclick="enableEnv(3)"> Jungle <br>
-          <form>
+          <div class="grayCard"><span class="bolded">Environment:</span><br>
+            <div id="simBackground">
+              <form id="simBackground">
+                <input type="radio" id="Forest" name="simBackground" value="Forest" onclick="enableEnv(1)"
+                  checked="checked"> Forest <br>
+                <input type="radio" id="Tundra" name="simBackground" value="Tundra" onclick="enableEnv(2)"> Tundra <br>
+                <input type="radio" id="Jungle" name="simBackground" value="Jungle" onclick="enableEnv(3)"> Jungle <br>
+                <form>
+            </div>
           </div>
-      </div>
 
-      <div class="grayCard"><span class="bolded">Predators:</span><br>
+          <div class="grayCard"><span class="bolded">Predators:</span><br>
 
-<label class="switch" >
-  <input type="checkbox">
-  <span class="slider round"></span>
-</label>
-      </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
 
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <h3>Diffrent result views</h3>
-      <p>-<br>-<br>-<br>-<br></p>
+      <div class="card">
+        <h3>Diffrent result views</h3>
+        <p>-<br>-<br>-<br>-<br></p>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="footer">
-  <h2>Created By Youssouf & Cisse</h2><br>
-  <a href="https://imgbb.com/"><img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11" border="0"></a>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/sqXD6KC/bird12.png" alt="bird12" border="0"></a>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/v4cgNg0/bird13.png" alt="bird13" border="0"></a>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/87zqMjv/bird21.png" alt="bird21" border="0"></a>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/XYHG6nf/bird22.png" alt="bird22" border="0"></a>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/FwJ1WwR/bird23.png" alt="bird23" border="0"></a>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/HFWJt7P/bird31.png" alt="bird31" border="0"></a>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/kQ4LTY8/bird32.png" alt="bird32" border="0"></a>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/kQBRpWj/bird133.png" alt="bird33" border="0"></a><br />
-</div>
-<script>
-  var coll = document.getElementsByClassName("collapsible");
-  var i;
-  
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.maxHeight){
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      } 
-    });
-  }
+  <div class="footer">
+    <h2>Created By Youssouf & Cisse</h2><br>
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11" border="0"></a>
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/sqXD6KC/bird12.png" alt="bird12" border="0"></a>
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/v4cgNg0/bird13.png" alt="bird13" border="0"></a>
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/87zqMjv/bird21.png" alt="bird21" border="0"></a>
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/XYHG6nf/bird22.png" alt="bird22" border="0"></a>
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/FwJ1WwR/bird23.png" alt="bird23" border="0"></a>
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/HFWJt7P/bird31.png" alt="bird31" border="0"></a>
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/kQ4LTY8/bird32.png" alt="bird32" border="0"></a>
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/kQBRpWj/bird133.png" alt="bird33" border="0"></a><br />
+  </div>
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
   </script>
 </body>
+
 </html>

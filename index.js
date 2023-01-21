@@ -94,16 +94,17 @@ function startSimulation() {
           i = 0;
 
           elem.style.width = "0%";
-          addData(chart, [Generation], [birdCount])
+
           if (addBirdAmount < 972) {
             Generation += 1 // generation + 1
             console.log("generation is", Generation)
+           
 
             document.getElementById("generationNumber").innerHTML = Generation;
             //birdTerminator();
             
             birdReproduction();
-
+            addData(chart, [Generation], [birdCount])
             progressBar(); // call the function again to loop
           } else {
             document.getElementById("title").innerHTML = "Birds Dominate the Planet!     (population reached the max limit)"
