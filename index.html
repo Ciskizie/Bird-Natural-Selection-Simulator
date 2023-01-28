@@ -18,10 +18,17 @@
 
   <div class="row">
     <div class="leftcolumn">
+      <div id="info" style="margin-top: -10px;" class="card">
+        <h2 style="margin-bottom:-10px;margin-top: -5px;">INFO:</h2><br>
+         - To start the simulation press the <span class="bolded">"Add Mate"</span> button.<br>
+         - The Mutations and Environmental factors can be changed by pressing their corresponding buttons on the right.<br>
+        - Mutations cannot be reset after the simulation starts.<br><br>
+        <span class="bolded">This message will disappear when the simulation is started</span>
+      </div>
       <div class="card">
-        <h2 id="title">SIMULATION SCREEN</h2>
+        <h2 id="title" style="margin-top: -10px;">SIMULATION SCREEN</h2>
 
-        <div style="display:table;margin: 0 auto;margin-bottom: -10px;margin-top: -40px;"> <span class="bolded"
+        <div style="display:table;margin: 0 auto;margin-bottom: -10px;margin-top: -20px;"> <span class="bolded"
             style="display:table;margin: 0 auto;margin-bottom: -20px;">Generation <span
               id="generationNumber"></span></span><br>
           <div id="myProgress">
@@ -122,10 +129,11 @@
         <div class="collapsecard">
 
           <div class="grayCard"> <span class="bolded">Beak:</span><br>
+
+            <button id="bbtn2" class="beak-btn" onclick="enableBeak(2)" style="width:100%;padding: 5px;background-color:gray ;">Short and
+              thick</button><br><!--goed voor zaden te eten-->
             <button id="bbtn1" class="beak-btn" onclick="enableBeak(1)" style="width:100%;padding: 5px;">Long and
               thin</button><br><!--goed voor insecten te eten-->
-            <button id="bbtn2" class="beak-btn" onclick="enableBeak(2)" style="width:100%;padding: 5px;">Short and
-              thick</button><br><!--goed voor zaden te eten-->
             <button id="bbtn3" class="beak-btn" onclick="enableBeak(3)" style="width:100%;padding: 5px;">Long and
               curved</button><br> <!--goed voor nectar te eten-->
             <button onclick="enableBeak('reset')">Reset</button>
@@ -133,7 +141,7 @@
 
           <div class="grayCard"><span class="bolded">Plumage color:</span><br>
             <button id="cbtn1" class="color-btn" onclick="enableColor(1)"
-              style="width:100%;padding: 5px;background-color:saddlebrown ;">Brown</button><br>
+              style="width:100%;padding: 5px;background-color:sienna ;">Brown</button><br>
             <button id="cbtn2" class="color-btn" onclick="enableColor(2)"
               style="width:100%;padding: 5px;background-color: white;margin-top: 5px;">White</button><br>
             <button id="cbtn3" class="color-btn" onclick="enableColor(3)"
@@ -150,11 +158,11 @@
         <div class="collapsecard">
 
           <div class="grayCard"><span class="bolded">Food Available:</span><br>
-            <input type="radio" id="food1" class="food-btn" value="Insects" onclick="enableFood(1)">
-            <label for="f1">Insects</label><br>
+            <input type="radio" id="food1" class="food-btn" value="Seeds" onclick="enableFood(1)"checked="checked">
+            <label for="f1">Seeds</label><br>
 
-            <input type="radio" id="food2" class="food-btn" value="Seeds" onclick="enableFood(2)">
-            <label for="f2">Seeds</label><br>
+            <input type="radio" id="food2" class="food-btn" value="Insects" onclick="enableFood(2)">
+            <label for="f2">Insects</label><br>
 
             <input type="radio" id="food3" class="food-btn" value="Nectar" onclick="enableFood(3)">
             <label for="f3">Nectar</label><br>

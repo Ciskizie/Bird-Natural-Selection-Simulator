@@ -24,14 +24,14 @@
   position: relative;
 }
 
-.startbox {
+.startbird {
 width: 15%;
 
   position: absolute;
   /* parent width - box width */
 }
-.box {
-  width: 15%;
+.bird {
+  width: 10%;
 
   position: absolute;
   /* parent width - box width */
