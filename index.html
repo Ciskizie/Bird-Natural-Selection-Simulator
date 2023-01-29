@@ -70,6 +70,13 @@
               borderColor: 'rgb(75, 192, 192)',
 
               stepped: true
+            },{
+              label: 'Short and thick beaks',
+              data: [1],
+              fill: false,
+              borderColor: 'rgb(175, 50, 50)',
+
+              stepped: true 
             }]
           };
           //config chart
@@ -95,6 +102,7 @@
           var chart = new Chart(document.getElementById("myChart"), config);
 
           function addData(chart, label, data) {
+
             chart.data.labels.push(label);
             chart.data.datasets.forEach((dataset) => {
               dataset.data.push(data);
