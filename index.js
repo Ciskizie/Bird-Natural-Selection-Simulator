@@ -19,16 +19,16 @@ window.onload = function () {
 
   document.getElementById("generationNumber").innerHTML = Generation; // generation 0 on bar
 
-  var startbird = document.createElement('div');
-  startbird.classList.add('bird');
-  startbird.classList.add('bird11');
-  startbird.classList.add('gen0');
+  var startbird = document.createElement("div");
+  startbird.classList.add("bird");
+  startbird.classList.add("bird11");
+  startbird.classList.add("gen0");
   startbird.id = "startbird";
-  document.querySelector('.main').appendChild(startbird);
-  document.getElementById('startbird').innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
+  document.querySelector(".main").appendChild(startbird);
+  document.getElementById("startbird").innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
 
 
-  var startbirdes = document.querySelectorAll('.bird');
+  var startbirdes = document.querySelectorAll(".bird");
   startbirdes.forEach(function (bird) {
     let x = Math.random() * 86;
     x = Math.floor(x);
@@ -50,17 +50,17 @@ function startSimulation() {
   // Add Second Bird
 
   for (var i = 0; i < 1; i++) {
-    var bird = document.createElement('div');
-    bird.classList.add('bird')
-    bird.classList.add('bird11');;
-    bird.classList.add('gen0');
+    var bird = document.createElement("div");
+    bird.classList.add("bird")
+    bird.classList.add("bird11");;
+    bird.classList.add("gen0");
 
     bird.id = "bird";
 
-    document.querySelector('.main').appendChild(bird);
+    document.querySelector(".main").appendChild(bird);
 
   }
-  var birdes = document.querySelectorAll('.bird');
+  var birdes = document.querySelectorAll(".bird");
   birdes.forEach(function (bird) {
     bird.innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
 
@@ -76,8 +76,8 @@ function startSimulation() {
 
   });
   // Make the button disappear
-  document.getElementById("startbtn").style.display = 'none';
-  document.getElementById("info").style.display = 'none';
+  document.getElementById("startbtn").style.display = "none";
+  document.getElementById("info").style.display = "none";
 
 
   //move the Generation Bar
@@ -178,13 +178,15 @@ function birdTerminator() { //birds older than 2 generations DIE!
 
 function birdReproduction() {
 
+
   console.log("inside function gen", Generation);
   let birdClassAmount = document.getElementsByClassName("bird").length
   let shortthickBirdAmount = document.getElementsByClassName("bird11").length
   let longthinBirdAmount = document.getElementsByClassName("bird21").length
   let longcurvedBirdAmount = document.getElementsByClassName("bird31").length
+  let birdClasssum = shortthickBirdAmount + longcurvedBirdAmount + longthinBirdAmount 
 
-  console.log("CLASS bird AMOUNT", birdClassAmount);
+  console.log("CLASS bird AMOUNT", birdClassAmount, "birdclasssum", birdClasssum);
 
   if (birdClassAmount > 250) {
     let = randomFloat = Math.random() * (3.5 - 2.5) + 2.5;
@@ -193,7 +195,7 @@ function birdReproduction() {
     addBirdAmount = birdClassAmount / randomFloat //NIET GOED
   } else {
     birdCount = birdClassAmount * 3
-    console.log(birdCount, 'this is birdCount')
+    console.log(birdCount, "this is birdCount")
     addBirdAmount = birdCount - birdClassAmount;
   }
   console.log(addBirdAmount, "=addbirdamount")
@@ -205,128 +207,128 @@ function birdReproduction() {
 
 
   for (var i = 0; i < addBirdAmount; i++) {
-    var bird = document.createElement('div');
-    bird.classList.add('bird')
+    var bird = document.createElement("div");
+    bird.classList.add("bird")
 
     /* if (beakForm.has("longthin") && beakForm.has("shortthick")) {
-       console.log("beakcheck", beakForm, new Array(...beakForm).filter(name => name.includes('longthin')))
+       console.log("beakcheck", beakForm, new Array(...beakForm).filter(name => name.includes("longthin")))
        if (availableFood.has("Seeds")){
        var d = Math.random()
        if (d < 0.3) {
-         beakForm.delete('shortthick')
+         beakForm.delete("shortthick")
          console.log(beakForm, 0.3)
          bird.classList.add(new Array(...beakForm));
-         bird.classList.add('bird21')
-         beakForm.add('shortthick')
+         bird.classList.add("bird21")
+         beakForm.add("shortthick")
  
        } else {
-         beakForm.delete('longthin')
+         beakForm.delete("longthin")
          console.log(beakForm, 0.7)
          bird.classList.add(new Array(...beakForm));
-         bird.classList.add('bird11')
-         beakForm.add('longthin')
+         bird.classList.add("bird11")
+         beakForm.add("longthin")
  
        }}else{
-         beakForm.delete('shortthick')
+         beakForm.delete("shortthick")
          bird.classList.add(new Array(...beakForm));
-         bird.classList.add('bird21')
-         beakForm.add('shortthick')
+         bird.classList.add("bird21")
+         beakForm.add("shortthick")
        }
      } else if(beakForm.size == 1 && beakForm.has("shortthick")){
        bird.classList.add(new Array(...beakForm))
-       bird.classList.add('bird11')
+       bird.classList.add("bird11")
      }else if(beakForm.size == 1 && beakForm.has("longthin")){
        bird.classList.add(new Array(...beakForm))
-       bird.classList.add('bird21')}*/
+       bird.classList.add("bird21")}*/
 
     if (beakForm.size == 2) {
       if (beakForm.has("longthin") && beakForm.has("shortthick")) {
         if (availableFood.has("Seeds")) {
           var d = Math.random()
           if (d < 0.3) { //chance for longthin
-            beakForm.delete('shortthick')
+            beakForm.delete("shortthick")
             console.log(beakForm, 0.3)
             bird.classList.add(new Array(...beakForm));
-            bird.classList.add('bird21')
-            beakForm.add('shortthick')
+            bird.classList.add("newbird21")
+            beakForm.add("shortthick")
 
           } else {
-            beakForm.delete('longthin')
+            beakForm.delete("longthin")
             console.log(beakForm, 0.7)
             bird.classList.add(new Array(...beakForm));
-            bird.classList.add('bird11')
-            beakForm.add('longthin')
+            bird.classList.add("newbird11")
+            beakForm.add("longthin")
 
           }
         } else {
-          beakForm.delete('shortthick')
+          beakForm.delete("shortthick")
           bird.classList.add(new Array(...beakForm));
-          bird.classList.add('bird21')
-          beakForm.add('shortthick')
+          bird.classList.add("newbird21")
+          beakForm.add("shortthick")
         }
       }
       if (beakForm.has("longcurved") && beakForm.has("shortthick")) {
         if (availableFood.has("Nectar")) {
           var d = Math.random()
           if (d < 0.3) { //chance for longcurved
-            beakForm.delete('shortthick')
+            beakForm.delete("shortthick")
             console.log(beakForm, 0.3)
             bird.classList.add(new Array(...beakForm));
-            bird.classList.add('bird31')
-            beakForm.add('shortthick')
+            bird.classList.add("newbird31")
+            beakForm.add("shortthick")
 
           } else {
-            beakForm.delete('longcurved')
+            beakForm.delete("longcurved")
             console.log(beakForm, 0.7)
             bird.classList.add(new Array(...beakForm));
-            bird.classList.add('bird11')
-            beakForm.add('longcurved')
+            bird.classList.add("newbird11")
+            beakForm.add("longcurved")
           }
         } else {
-          beakForm.delete('longcurved')
+          beakForm.delete("longcurved")
           console.log(beakForm, 0.7)
           bird.classList.add(new Array(...beakForm));
-          bird.classList.add('bird11')
-          beakForm.add('longcurved')
+          bird.classList.add("newbird11")
+          beakForm.add("longcurved")
         }
       }
       if (beakForm.has("longthin") && beakForm.has("longcurved")) {
         if (availableFood.has("Nectar")) {
           var d = Math.random()
           if (d < 0.3) { //chance for longcurved
-            beakForm.delete('longthin')
+            beakForm.delete("longthin")
             console.log(beakForm, 0.3)
             bird.classList.add(new Array(...beakForm));
-            bird.classList.add('bird31')
-            beakForm.add('longthin')
+            bird.classList.add("newbird31")
+            beakForm.add("longthin")
 
           } else {
-            beakForm.delete('longcurved')
+            beakForm.delete("longcurved")
             console.log(beakForm, 0.7)
             bird.classList.add(new Array(...beakForm));
-            bird.classList.add('bird21')
-            beakForm.add('longcurved')
+            bird.classList.add("newbird21")
+            beakForm.add("longcurved")
           }
         } else {
-          beakForm.delete('longthin')
+          beakForm.delete("longthin")
           console.log(beakForm, 0.7)
           bird.classList.add(new Array(...beakForm));
-          bird.classList.add('bird21')
-          beakForm.add('longthin')
+          bird.classList.add("newbird21")
+          beakForm.add("longthin")
         }
       }
     } else if (beakForm.size == 1) {
       if (beakForm.has("shortthick")) {
         bird.classList.add(new Array(...beakForm))
-        bird.classList.add('bird11')
+        bird.classList.add("newbird11")
       }
       if (beakForm.has("longthin")) {
         bird.classList.add(new Array(...beakForm))
-        bird.classList.add('bird21')
+        bird.classList.add("newbird21")
       }
       if (beakForm.has("longcurved")) {
         bird.classList.add(new Array(...beakForm))
-        bird.classList.add('bird31')
+        bird.classList.add("newbird31")
       }
     }
 
@@ -334,19 +336,19 @@ function birdReproduction() {
     bird.classList.add(genUp)
 
     bird.classList.add(new Array(...plumageColor));
-    //console.log((new Array(...plumageColor).join(' ')))
+    //console.log((new Array(...plumageColor).join(" ")))
     bird.id = "bird";
     //console.log(beakForm, plumageColor)
 
 
-    document.querySelector('.main').appendChild(bird);
+    document.querySelector(".main").appendChild(bird);
   }
   birdCount = document.getElementsByClassName("bird").length
   console.log("amount of birds is", birdCount);
 
 
 
-  var birdes11 = document.querySelectorAll('.bird11');
+  var birdes11 = document.querySelectorAll(".newbird11");
 
 
   birdes11.forEach(function (bird) {
@@ -363,7 +365,7 @@ function birdReproduction() {
     bird.style.top = y + "%";
 
   });
-  var birdes21 = document.querySelectorAll('.bird21');
+  var birdes21 = document.querySelectorAll(".newbird21");
   birdes21.forEach(function (bird) {
     bird.innerHTML = '<img src="https://i.ibb.co/87zqMjv/bird21.png" alt="bird21">';
 
@@ -379,7 +381,7 @@ function birdReproduction() {
 
   });
 
-  var birdes31 = document.querySelectorAll('.bird31');
+  var birdes31 = document.querySelectorAll(".newbird31");
   birdes31.forEach(function (bird) {
     bird.innerHTML = '<img src="https://i.ibb.co/HFWJt7P/bird31.png" alt="bird31">';
 
@@ -394,13 +396,27 @@ function birdReproduction() {
     bird.style.top = y + "%";
 
   });
-
+  var oldbird11 = document.querySelectorAll(".newbird11");
+  oldbird11.forEach(function (bird) {
+    bird.classList.remove("newbird11")
+    bird.classList.add("bird11")
+  })
+var oldbird21 = document.querySelectorAll(".newbird21");
+  oldbird21.forEach(function (bird) {
+    bird.classList.remove("newbird21")
+    bird.classList.add("bird21")
+  })
+var oldbird31 = document.querySelectorAll(".newbird31");
+  oldbird31.forEach(function (bird) {
+    bird.classList.remove("newbird31")
+    bird.classList.add("bird31")
+  })
 }
 
 
 function enableBeak(n) {
   if (n === 1) {                                  //long and thin
-    const btn = document.getElementById('bbtn1');
+    const btn = document.getElementById("bbtn1");
     btn.style.backgroundColor = "gray";
     console.log("long and thin")
     beakForm.add("longthin")
@@ -410,7 +426,7 @@ function enableBeak(n) {
     } else { }
 
   } else if (n === 2) {                           //short and thick
-    const btn = document.getElementById('bbtn2');
+    const btn = document.getElementById("bbtn2");
     btn.style.backgroundColor = "gray";
     console.log("short and thick")
     beakForm.add("shortthick")
@@ -420,7 +436,7 @@ function enableBeak(n) {
     } else { }
 
   } else if (n === 3) {                           //long and curved
-    const btn = document.getElementById('bbtn3');
+    const btn = document.getElementById("bbtn3");
     btn.style.backgroundColor = "gray";
     console.log("long and curved")
     beakForm.add("longcurved")
@@ -430,8 +446,8 @@ function enableBeak(n) {
 
     } else { }
 
-  } else if (n === 'reset') {
-    const btns = document.querySelectorAll('.beak-btn');
+  } else if (n === "reset") {
+    const btns = document.querySelectorAll(".beak-btn");
     btns.forEach(btn => {
       btn.style.backgroundColor = "";
     });
@@ -443,24 +459,24 @@ function enableBeak(n) {
 
 function enableFood(m) {
   if (m === 1) {
-    const food = document.getElementById('food1').value;
+    const food = document.getElementById("food1").value;
     console.log(food)
     availableFood.add("Seeds");
     console.log(availableFood)
   } else if (m === 2) {
-    const food = document.getElementById('food2').value;
+    const food = document.getElementById("food2").value;
     console.log(food)
     availableFood.add("Insects");
     console.log(availableFood)
   } else if (m === 3) {
-    const food = document.getElementById('food3').value;
+    const food = document.getElementById("food3").value;
     console.log(food)
     availableFood.add("Nectar");
     console.log(availableFood)
-  } else if (m === 'reset') {
+  } else if (m === "reset") {
     availableFood.clear()
     console.log(availableFood)
-    const btns = document.querySelectorAll('.food-btn');
+    const btns = document.querySelectorAll(".food-btn");
     btns.forEach(food => {
       food.checked = false;
 
@@ -470,16 +486,16 @@ function enableFood(m) {
 
 function enableColor(n) {
   if (n === 1) {
-    const btn = document.getElementById('cbtn1');
+    const btn = document.getElementById("cbtn1");
     btn.style.backgroundColor = "sienna";
   } else if (n === 2) {
-    const btn = document.getElementById('cbtn2');
+    const btn = document.getElementById("cbtn2");
     btn.style.backgroundColor = "";
   } else if (n === 3) {
-    const btn = document.getElementById('cbtn3');
+    const btn = document.getElementById("cbtn3");
     btn.style.backgroundColor = "limegreen";
-  } else if (n === 'reset') {
-    const btns = document.querySelectorAll('.color-btn');
+  } else if (n === "reset") {
+    const btns = document.querySelectorAll(".color-btn");
     btns.forEach(btn => {
       cbtn1.style.backgroundColor = "saddlebrown";
       cbtn2.style.backgroundColor = "white";
@@ -491,26 +507,26 @@ function enableColor(n) {
 //environment
 function enableEnv(n) {
   if (n === 1) {                                  //forest
-    const btn = document.getElementById('Forest');
+    const btn = document.getElementById("Forest");
     btn.style.backgroundColor = "gray";
-    document.getElementById('simulationBackground').innerHTML = '<img src="https://png.pngtree.com/thumb_back/fh260/back_our/20200630/ourmid/pngtree-green-small-fresh-forest-banner-image_340877.jpg">';
+    document.getElementById("simulationBackground").innerHTML = '<img src="https://png.pngtree.com/thumb_back/fh260/back_our/20200630/ourmid/pngtree-green-small-fresh-forest-banner-image_340877.jpg">';
 
   } else if (n === 2) {                           //tundra
-    const btn = document.getElementById('Tundra');
+    const btn = document.getElementById("Tundra");
     btn.style.backgroundColor = "gray";
-    document.getElementById('simulationBackground').innerHTML = '<img src="https://i.pinimg.com/736x/b5/0e/d3/b50ed315eb512a081ec97ec5c8cf04ea.jpg">';
+    document.getElementById("simulationBackground").innerHTML = '<img src="https://i.pinimg.com/736x/b5/0e/d3/b50ed315eb512a081ec97ec5c8cf04ea.jpg">';
 
   } else if (n === 3) {                           //jungle
-    const btn = document.getElementById('Jungle');
+    const btn = document.getElementById("Jungle");
     btn.style.backgroundColor = "gray";
-    document.getElementById('simulationBackground').innerHTML = '<img src="https://i.imgur.com/KpQjTkh.png">';
+    document.getElementById("simulationBackground").innerHTML = '<img src="https://i.imgur.com/KpQjTkh.png">';
 
 
-  } else if (n === 'reset') {
-    const btns = document.querySelectorAll('.env-btn');
+  } else if (n === "reset") {
+    const btns = document.querySelectorAll(".env-btn");
     btns.forEach(btn => {
       btn.style.backgroundColor = "";
-      document.getElementById('simulationBackground').innerHTML = "simulationBackground"
+      document.getElementById("simulationBackground").innerHTML = "simulationBackground"
     });
     let size = "small";
     console.log("birdsize is reset to ", size)
