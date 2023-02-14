@@ -1,3 +1,5 @@
+//const { plugins } = require("chart.js");
+
 let birdCount = 1; //finches
 let Generation = 0;
 //let MutationRate= 0.3; //IDK YET
@@ -240,7 +242,11 @@ function birdReproduction() {
      }else if(beakForm.size == 1 && beakForm.has("longthin")){
        bird.classList.add(new Array(...beakForm))
        bird.classList.add("bird21")}*/
-
+    if(plumageColor.size == 2){
+      if(plumageColor.has("brown")&& plumageColor.has("white")){
+        var bird12 = document.querySelector()
+      }
+    } 
     if (beakForm.size == 2) {
       if (beakForm.has("longthin") && beakForm.has("shortthick")) {
         if (availableFood.has("Seeds")) {
@@ -260,6 +266,7 @@ function birdReproduction() {
             beakForm.add("longthin")
 
           }
+          
         } else {
           beakForm.delete("shortthick")
           bird.classList.add(new Array(...beakForm));
@@ -488,12 +495,21 @@ function enableColor(n) {
   if (n === 1) {
     const btn = document.getElementById("cbtn1");
     btn.style.backgroundColor = "sienna";
+    console.log("brown")
+    plumageColor.add("brown")
+
   } else if (n === 2) {
     const btn = document.getElementById("cbtn2");
     btn.style.backgroundColor = "";
+    console.log("white")
+    plumageColor.add("white")
+    
   } else if (n === 3) {
     const btn = document.getElementById("cbtn3");
     btn.style.backgroundColor = "limegreen";
+    console.log("green")
+    plumageColor.add("green")
+    
   } else if (n === "reset") {
     const btns = document.querySelectorAll(".color-btn");
     btns.forEach(btn => {
@@ -501,6 +517,9 @@ function enableColor(n) {
       cbtn2.style.backgroundColor = "white";
       cbtn3.style.backgroundColor = "lime";
     });
+    plumageColor.clear()
+    console.log("plumageColor is reset to ", plumageColor);
+
   }
 }
 
