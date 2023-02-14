@@ -186,7 +186,7 @@ function birdReproduction() {
   let shortthickBirdAmount = document.getElementsByClassName("bird11").length
   let longthinBirdAmount = document.getElementsByClassName("bird21").length
   let longcurvedBirdAmount = document.getElementsByClassName("bird31").length
-  let birdClasssum = shortthickBirdAmount + longcurvedBirdAmount + longthinBirdAmount 
+  let birdClasssum = shortthickBirdAmount + longcurvedBirdAmount + longthinBirdAmount
 
   console.log("CLASS bird AMOUNT", birdClassAmount, "birdclasssum", birdClasssum);
 
@@ -242,11 +242,11 @@ function birdReproduction() {
      }else if(beakForm.size == 1 && beakForm.has("longthin")){
        bird.classList.add(new Array(...beakForm))
        bird.classList.add("bird21")}*/
-    if(plumageColor.size == 2){
-      if(plumageColor.has("brown")&& plumageColor.has("white")){
+    if (plumageColor.size == 2) {
+      if (plumageColor.has("brown") && plumageColor.has("white")) {
         var bird12 = document.querySelector()
       }
-    } 
+    }
     if (beakForm.size == 2) {
       if (beakForm.has("longthin") && beakForm.has("shortthick")) {
         if (availableFood.has("Seeds")) {
@@ -266,7 +266,7 @@ function birdReproduction() {
             beakForm.add("longthin")
 
           }
-          
+
         } else {
           beakForm.delete("shortthick")
           bird.classList.add(new Array(...beakForm));
@@ -408,12 +408,12 @@ function birdReproduction() {
     bird.classList.remove("newbird11")
     bird.classList.add("bird11")
   })
-var oldbird21 = document.querySelectorAll(".newbird21");
+  var oldbird21 = document.querySelectorAll(".newbird21");
   oldbird21.forEach(function (bird) {
     bird.classList.remove("newbird21")
     bird.classList.add("bird21")
   })
-var oldbird31 = document.querySelectorAll(".newbird31");
+  var oldbird31 = document.querySelectorAll(".newbird31");
   oldbird31.forEach(function (bird) {
     bird.classList.remove("newbird31")
     bird.classList.add("bird31")
@@ -452,6 +452,21 @@ function enableBeak(n) {
 
 
     } else { }
+
+  } else if (n === 4) {                           //long and curved
+    const btn = document.getElementById("bbtn4");
+    btn.style.backgroundColor = "gray";
+
+
+  } else if (n === 5) {                           //long and curved
+    const btn = document.getElementById("bbtn5");
+    btn.style.backgroundColor = "gray";
+
+
+  } else if (n === 6) {                           //long and curved
+    const btn = document.getElementById("bbtn6");
+    btn.style.backgroundColor = "gray";
+
 
   } else if (n === "reset") {
     const btns = document.querySelectorAll(".beak-btn");
@@ -498,24 +513,45 @@ function enableColor(n) {
     console.log("brown")
     plumageColor.add("brown")
 
+  } else if (n === 4 ) {
+    const btn = document.getElementById("cbtn4");
+    btn.style.backgroundColor = "sienna";
+    console.log("brown")
+    plumageColor.add("brown")
+
   } else if (n === 2) {
     const btn = document.getElementById("cbtn2");
     btn.style.backgroundColor = "";
     console.log("white")
     plumageColor.add("white")
-    
+
+  } else if (n === 5) {
+    const btn = document.getElementById("cbtn5");
+    btn.style.backgroundColor = "";
+    console.log("white")
+    plumageColor.add("white")
+
   } else if (n === 3) {
     const btn = document.getElementById("cbtn3");
     btn.style.backgroundColor = "limegreen";
     console.log("green")
     plumageColor.add("green")
-    
+
+  } else if (n === 6) {
+    const btn = document.getElementById("cbtn6");
+    btn.style.backgroundColor = "limegreen";
+    console.log("green")
+    plumageColor.add("green")
+
   } else if (n === "reset") {
     const btns = document.querySelectorAll(".color-btn");
     btns.forEach(btn => {
       cbtn1.style.backgroundColor = "saddlebrown";
       cbtn2.style.backgroundColor = "white";
       cbtn3.style.backgroundColor = "lime";
+      cbtn4.style.backgroundColor = "saddlebrown";
+      cbtn5.style.backgroundColor = "white";
+      cbtn6.style.backgroundColor = "lime";
     });
     plumageColor.clear()
     console.log("plumageColor is reset to ", plumageColor);
