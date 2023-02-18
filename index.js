@@ -179,8 +179,104 @@ function birdTerminator() { //birds older than 2 generations DIE!
 }
 
 function birdReproduction() {
+  let genUpS = "gen"
+  let genUpN = Generation; //!!!!!
+  let genUp = `${genUpS}${genUpN}`;
+  console.log(genUp, "genup");
+
+  let bird11Amount = document.getElementsByClassName("bird11").length
+  let bird21Amount = document.getElementsByClassName("bird21").length
+  let bird31Amount = document.getElementsByClassName("bird31").length
+  let birdClassAmount = bird11Amount + bird21Amount + bird31Amount	
+  console.log(birdClassAmount,"birclassamount")
+
+  if (birdClassAmount > 200) {
+    let = randomFloat = Math.random() * (3.5 - 2.5) + 2.5;
+    console.log(randomFloat)
+   
+    h = birdClassAmount / randomFloat //NIET GOED
+    console.log(h, "starvebirds")
+    starvebirdAmount = (birdClassAmount - h) /3
+    console.log(starvebirdAmount, "starvebirdAmount")
+    for (birdClassAmount; birdClassAmount > starvebirdAmount; birdClassAmount--) {
+      document.getElementById("bird").remove()
+    }
+    console.log(document.getElementsByClassName("bird").length, "birdamountafterkill")
+      birdReproduction()
+  } else {
+    let bird11Count = bird11Amount *3
+    let bird21Count = bird21Amount *3
+    let bird31Count = bird31Amount *3
+  
+    let addbird11Amount = bird11Count - bird11Amount
+    let addbird21Amount = bird21Count - bird21Amount
+    let addbird31Amount = bird31Count - bird31Amount
+    
+    addBirdAmount = addbird11Amount + addbird21Amount + addbird31Amount
+  
+  console.log(addBirdAmount, "=addbirdamount")
+
+  for (var i = 0; i < addBirdAmount; i++) {
+    var bird = document.createElement("div");
+    bird.classList.add("bird")
+
+  if (beakForm.size == 1) {
+    if (beakForm.has("Dshortthick") || beakForm.has("Rshortthick")) {
+      bird.classList.add(new Array(...beakForm))
+      bird.classList.add("newbird11")
+    }
+    if (beakForm.has("Dlongthin") || beakForm.has("Rlongthin")) {
+      bird.classList.add(new Array(...beakForm))
+      bird.classList.add("newbird21")
+    }
+    if (beakForm.has("Dlongcurved") || beakForm.has("Rlongcurved")) {
+      bird.classList.add(new Array(...beakForm))
+      bird.classList.add("newbird31")
+    }
+  } 
+  bird.classList.add(genUp)
+
+  bird.classList.add(new Array(...plumageColor));
+  //console.log((new Array(...plumageColor).join(" ")))
+  bird.id = "bird";
+  //console.log(beakForm, plumageColor)
 
 
+  document.querySelector(".main").appendChild(bird);
+
+}
+
+   if(beakForm.size == 2){ 
+    if(beakForm.has("Dshortthick")){
+      if(beakForm.has("Rlongthin")){
+        let firstCheck = document.getElementsByClassName("Rlongthin").length
+        if(firstCheck >= 1){
+
+        }else{ 
+          
+        }
+        console.log(firstCheck)
+
+      } else if(beakForm.has("Rlongcurved")){
+        
+      }
+    } else if(beakForm.has("Dlongthin")){
+      if(beakForm.has("Rshortthick")){
+
+      } else if(beakForm.has("Rlongcurved")){
+        
+      }
+    }else if(beakForm.has("Dlongcurved")){
+      if(beakForm.has("Rlongthin")){
+
+      } else if(beakForm.has("Rshortthick")){
+        
+      }
+    }
+  }
+  }
+
+/*
   console.log("inside function gen", Generation);
   let birdClassAmount = document.getElementsByClassName("bird").length
   let shortthickBirdAmount = document.getElementsByClassName("bird11").length
@@ -225,6 +321,33 @@ function birdReproduction() {
         bird.classList.add(new Array(...beakForm))
         bird.classList.add("newbird31")
       }
+    } else if(beakForm.size == 2){ 
+      if(beakForm.has("Dshortthick")){
+        if(beakForm.has("Rlongthin")){
+          let firstCheck = document.getElementsByClassName("Rlongthin").length
+          if(firstCheck >= 1){
+
+          }else{ 
+            
+          }
+          console.log(firstCheck)
+
+        } else if(beakForm.has("Rlongcurved")){
+          
+        }
+      } else if(beakForm.has("Dlongthin")){
+        if(beakForm.has("Rshortthick")){
+
+        } else if(beakForm.has("Rlongcurved")){
+          
+        }
+      }else if(beakForm.has("Dlongcurved")){
+        if(beakForm.has("Rlongthin")){
+
+        } else if(beakForm.has("Rshortthick")){
+          
+        }
+      }
     }
 
 
@@ -238,8 +361,10 @@ function birdReproduction() {
 
     document.querySelector(".main").appendChild(bird);
   }
+  */
   birdCount = document.getElementsByClassName("bird").length
   console.log("amount of birds is", birdCount);
+  birdClassAmount = birdCount
 
 
 
@@ -306,6 +431,25 @@ function birdReproduction() {
     bird.classList.remove("newbird31")
     bird.classList.add("bird31")
   })
+
+  if (birdClassAmount > 400) {
+    let = randomFloat = Math.random() * (3.5 - 2.5) + 2.5;
+    console.log(randomFloat)
+   
+    h = birdClassAmount / randomFloat //NIET GOED
+    console.log(h, "starvebirds")
+    starvebirdAmount = (birdClassAmount - h) /3
+    console.log(starvebirdAmount, "starvebirdAmount")
+    for (birdClassAmount; birdClassAmount > starvebirdAmount; birdClassAmount--) {
+      document.getElementById("bird").remove()
+    }
+    console.log(document.getElementsByClassName("bird").length, "birdamountafterkill")
+      birdReproduction()
+  }
+}
+
+function addMutation(n){
+
 }
 
 
