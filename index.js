@@ -163,7 +163,7 @@ function birdTerminator() { //birds older than 2 generations DIE!
     document.querySelectorAll("." + birdClass).forEach(e => e.remove()); //!!!!! TERMINATOR
 
   }
-  if (beakForm.has("longthin") == true && availableFood.has("Insects") == false) {
+  if (beakForm.has("Rlongthin" || "Dlongthin") == true && availableFood.has("Insects") == false) {
     console.log("rip longthin beaks")
     document.querySelectorAll(".bird21").forEach(e => e.remove()); //!!!!! kills all birds with long thin beaks because there are no insects
   }
@@ -194,7 +194,7 @@ function birdReproduction() {
     let = randomFloat = Math.random() * (3.5 - 2.5) + 2.5;
     console.log(randomFloat)
    
-    h = birdClassAmount / randomFloat //NIET GOED
+    h = birdClassAmount / randomFloat //idk
     console.log(h, "starvebirds")
     starvebirdAmount = (birdClassAmount - h) /3
     console.log(starvebirdAmount, "starvebirdAmount")
@@ -222,18 +222,55 @@ function birdReproduction() {
 
   if (beakForm.size == 1) {
     if (beakForm.has("Dshortthick") || beakForm.has("Rshortthick")) {
-      bird.classList.add(new Array(...beakForm))
+      bird.classList.add(new Array(...beakForm)+"1")
+      bird.classList.add(new Array(...beakForm)+"2")
       bird.classList.add("newbird11")
     }
     if (beakForm.has("Dlongthin") || beakForm.has("Rlongthin")) {
-      bird.classList.add(new Array(...beakForm))
+      bird.classList.add(new Array(...beakForm)+"1")
+      bird.classList.add(new Array(...beakForm)+"2")
       bird.classList.add("newbird21")
     }
     if (beakForm.has("Dlongcurved") || beakForm.has("Rlongcurved")) {
-      bird.classList.add(new Array(...beakForm))
+      bird.classList.add(new Array(...beakForm)+"1")
+      bird.classList.add(new Array(...beakForm)+"2")
       bird.classList.add("newbird31")
+
+    } 
+  } else    if(beakForm.size == 2){ 
+
+    if(beakForm.has("Dshortthick")){
+      if(beakForm.has("Rlongthin")){
+        let firstCheck = document.getElementsByClassName("Rlongthin2").length
+        if(firstCheck > 1){
+          
+          bird.classList.add("newbird11")
+        }else{ 
+          bird.classList.add("Rlongthin2")
+          document.querySelector(".main").appendChild(bird);
+          randomMutation(1)
+        }
+        console.log(firstCheck)
+
+      } else if(beakForm.has("Rlongcurved")){
+        
+      }
+    } else if(beakForm.has("Dlongthin")){
+      if(beakForm.has("Rshortthick")){
+        /*console.log("testcheck")
+        bird.classList.add("Dlongthin")
+        bird.classList.add("newbird21")*/
+      } else if(beakForm.has("Rlongcurved")){
+        
+      }
+    }else if(beakForm.has("Dlongcurved")){
+      if(beakForm.has("Rlongthin")){
+
+      } else if(beakForm.has("Rshortthick")){
+        
+      }
     }
-  } 
+  }
   bird.classList.add(genUp)
 
   bird.classList.add(new Array(...plumageColor));
@@ -246,34 +283,7 @@ function birdReproduction() {
 
 }
 
-   if(beakForm.size == 2){ 
-    if(beakForm.has("Dshortthick")){
-      if(beakForm.has("Rlongthin")){
-        let firstCheck = document.getElementsByClassName("Rlongthin").length
-        if(firstCheck >= 1){
 
-        }else{ 
-          
-        }
-        console.log(firstCheck)
-
-      } else if(beakForm.has("Rlongcurved")){
-        
-      }
-    } else if(beakForm.has("Dlongthin")){
-      if(beakForm.has("Rshortthick")){
-
-      } else if(beakForm.has("Rlongcurved")){
-        
-      }
-    }else if(beakForm.has("Dlongcurved")){
-      if(beakForm.has("Rlongthin")){
-
-      } else if(beakForm.has("Rshortthick")){
-        
-      }
-    }
-  }
   }
 
 /*
@@ -448,8 +458,16 @@ function birdReproduction() {
   }
 }
 
-function addMutation(n){
+function randomMutation(n){
+ if(n ===1){ //Dshortthick Rlongthin
+  var firstElementWithClass = document.querySelector('.Rlongthin2');
+  firstElementWithClass.classList.add("newbird21")
+  firstElementWithClass.classList.add("Rlongthin2")
+  firstElementWithClass.classList.add("Dshortthick1")
 
+
+  console.log("RANDOMMUTATION")
+ }
 }
 
 
@@ -469,6 +487,7 @@ function enableBeak(n) {
     btn.style.backgroundColor = "gray";
     console.log("Dshort and thick")
     beakForm.add("Dshortthick")
+    
     if (availableFood.has("Seeds")) {
       console.log("bird can eat seeds -> survive");
 
@@ -497,6 +516,7 @@ function enableBeak(n) {
     btn.style.backgroundColor = "gray";
     console.log("Rshort and thick")
     beakForm.add("Rshortthick")
+    console.log(beakForm)
 
 
   } else if (n === 6 && !beakForm.has("Dlongcurved")) {                           

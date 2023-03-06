@@ -8,7 +8,7 @@
     padding-right: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
-    background: #f1f1f1;
+    background: rgba(204, 250, 244, 1);
   }
   .bird {
     position: absolute;
@@ -47,6 +47,7 @@ width: 15%;
     outline: none;
     font-size: 15px;
     margin-top: 20px;
+    border-radius: 10px;
     
   }
   
@@ -71,7 +72,7 @@ width: 15%;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    background-color: #f1f1f1;
+    background-color: rgba(204, 250, 244, 1);
   }
   #myProgress {
     width: 100%;
@@ -120,6 +121,7 @@ width: 15%;
     background-color: #aaa;
     width: 100%;
     padding: 20px;
+    border-radius: 10px;
   }
   img {
     width: 100%;
@@ -146,9 +148,11 @@ width: 15%;
   }
   /* Add a card effect for articles */
   .card {
-    background-color: white;
+    background: rgb(34,195,96);
+background: linear-gradient(0deg, rgba(34,195,96,0.7196999771588323) 0%, rgba(174,253,45,0.4171789687554709) 100%);
     padding: 20px;
     margin-top: 20px;
+    border-radius: 10px;
     
   }
     .collapsecard {
