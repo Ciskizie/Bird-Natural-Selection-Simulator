@@ -116,6 +116,8 @@ width: 15%;
     position: relative;
       
     }
+
+   
   /* Gray Card */
   .grayCard {
     background-color: #aaa;
@@ -158,6 +160,7 @@ background: linear-gradient(0deg, rgba(34,195,96,0.7196999771588323) 0%, rgba(17
     .collapsecard {
     background-color: white;
     padding: 20px;
+    border-radius:  0px 0px 10px 10px
     
   }
   
