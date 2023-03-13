@@ -216,72 +216,37 @@ function birdReproduction() {
   
   console.log(addBirdAmount, "=addbirdamount")
 
-  for (var i = 0; i < addBirdAmount; i++) {
-    var bird = document.createElement("div");
-    bird.classList.add("bird")
+// Get all the HTML birds you want to loop over
+const birds = document.querySelectorAll('.bird');
 
-  if (beakForm.size == 1) {
-    if (beakForm.has("Dshortthick") || beakForm.has("Rshortthick")) {
-      bird.classList.add(new Array(...beakForm)+"1")
-      bird.classList.add(new Array(...beakForm)+"2")
-      bird.classList.add("newbird11")
-    }
-    if (beakForm.has("Dlongthin") || beakForm.has("Rlongthin")) {
-      bird.classList.add(new Array(...beakForm)+"1")
-      bird.classList.add(new Array(...beakForm)+"2")
-      bird.classList.add("newbird21")
-    }
-    if (beakForm.has("Dlongcurved") || beakForm.has("Rlongcurved")) {
-      bird.classList.add(new Array(...beakForm)+"1")
-      bird.classList.add(new Array(...beakForm)+"2")
-      bird.classList.add("newbird31")
+// Loop over the birds, stepping by 2 each time
+for (let i = 0; i < birds.length; i += 2) {
+  const parent1 = birds[i];
+  const parent2 = birds[i + 1];
 
-    } 
-  } else    if(beakForm.size == 2){ 
+  // Randomly choose a class from each element
+  const class1 = parent1.classList[Math.floor(Math.random() * parent1.classList.length)];
+  const class2 = parent2.classList[Math.floor(Math.random() * parent2.classList.length)];
 
-    if(beakForm.has("Dshortthick")){
-      if(beakForm.has("Rlongthin")){
-        let firstCheck = document.getElementsByClassName("Rlongthin2").length
-        if(firstCheck > 1){
-          
-          bird.classList.add("newbird11")
-        }else{ 
-          bird.classList.add("Rlongthin2")
-          document.querySelector(".main").appendChild(bird);
-          randomMutation(1)
-        }
-        console.log(firstCheck)
-
-      } else if(beakForm.has("Rlongcurved")){
-        
-      }
-    } else if(beakForm.has("Dlongthin")){
-      if(beakForm.has("Rshortthick")){
-        /*console.log("testcheck")
-        bird.classList.add("Dlongthin")
-        bird.classList.add("newbird21")*/
-      } else if(beakForm.has("Rlongcurved")){
-        
-      }
-    }else if(beakForm.has("Dlongcurved")){
-      if(beakForm.has("Rlongthin")){
-
-      } else if(beakForm.has("Rshortthick")){
-        
-      }
-    }
+  // Determine which class is dominant and which is recessive
+  let dominantClass, recessiveClass;
+  if (class1 === 'dominant-class' || class2 === 'dominant-class') {
+    dominantClass = 'dominant-class';
+    recessiveClass = 'recessive-class';
+  } else {
+    dominantClass = 'recessive-class';
+    recessiveClass = 'dominant-class';
   }
-  bird.classList.add(genUp)
 
-  bird.classList.add(new Array(...plumageColor));
-  //console.log((new Array(...plumageColor).join(" ")))
-  bird.id = "bird";
-  //console.log(beakForm, plumageColor)
+  // Create a new element with the dominant/recessive trait
+  const newElement = document.createElement('div');
+  newElement.classList.add(dominantClass);
+  newElement.classList.add(recessiveClass);
 
-
+  // Add the new element to the DOM
   document.querySelector(".main").appendChild(bird);
-
 }
+
 
 
   }
