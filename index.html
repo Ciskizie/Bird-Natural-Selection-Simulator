@@ -18,7 +18,7 @@
 
   <div class="row">
     <div class="leftcolumn">
-      <div id="info" style="margin-top: -10px;" class="card">
+      <div id="info" style="margin-top: -10px;background: rgb(34,195,96);background: linear-gradient(180deg, rgba(34,195,96,0.39399509803921573) 0%, rgba(174,253,45,0.458420868347339) 85%);" class="card">
         <h2 style="margin-bottom:-10px;margin-top: -5px;">INFO:</h2><br>
          - To start the simulation press the <span class="bolded">"Add Mate"</span> button.<br>
          - The Mutations and Environmental factors can be changed by pressing their corresponding buttons on the right.<br>
@@ -188,7 +188,7 @@
             <button onclick="enableFood('reset')">Reset</button>
           </div><br>
 
-          <div class="grayCard"><span class="bolded">Environment:</span><br>
+          <div  style="border-radius: 10px 10px 0px 0px ;" class="grayCard"><span class="bolded" >Environment:</span><br>
             <div id="simBackground">
               <form id="simBackground">
                 <input type="radio" id="Forest" name="simBackground" value="Forest" onclick="enableEnv(1)"
@@ -199,7 +199,7 @@
             </div>
           </div>
 
-          <div class="grayCard"><span class="bolded">Predators:</span><br>
+          <div style="border-radius: 0px 0px 10px 10px;" class="grayCard"><span class="bolded">Predators:</span><br>
 
             <label class="switch">
               <input type="checkbox">
