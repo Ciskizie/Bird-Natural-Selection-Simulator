@@ -25,6 +25,8 @@ window.onload = function () {
   startbird.classList.add("bird");
   startbird.classList.add("bird11");
   startbird.classList.add("gen0");
+  startbird.classList.add("Dshortthick");
+  startbird.classList.add("Dbrown");
   startbird.id = "startbird";
   document.querySelector(".main").appendChild(startbird);
   document.getElementById("startbird").innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
@@ -56,6 +58,8 @@ function startSimulation() {
     bird.classList.add("bird")
     bird.classList.add("bird11");;
     bird.classList.add("gen0");
+    bird.classList.add("Dshortthick");
+    bird.classList.add("Dbrown");
 
     bird.id = "bird";
 
@@ -223,20 +227,21 @@ const birds = document.querySelectorAll('.bird');
 for (let i = 0; i < birds.length; i += 2) {
   const parent1 = birds[i];
   const parent2 = birds[i + 1];
+//Beak traits
 
   // Randomly choose a class from each element
-  const class1 = parent1.classList[Math.floor(Math.random() * parent1.classList.length)];
-  const class2 = parent2.classList[Math.floor(Math.random() * parent2.classList.length)];
+  if (parent1.contains("Dshortthick") || parent2.contains("Dshortthick")){
+    if(parent1.contains("Dshortthick") || parent2.contains("Dshortthick")){
+      const newbird = document.createElement('div');
+      newbird.classList.add("Dshortthick");
+      newbird.classList.add("Dshortthick");
+    } 
+   
+  }
+
+
 
   // Determine which class is dominant and which is recessive
-  let dominantClass, recessiveClass;
-  if (class1 === 'dominant-class' || class2 === 'dominant-class') {
-    dominantClass = 'dominant-class';
-    recessiveClass = 'recessive-class';
-  } else {
-    dominantClass = 'recessive-class';
-    recessiveClass = 'dominant-class';
-  }
 
   // Create a new element with the dominant/recessive trait
   const newElement = document.createElement('div');

@@ -25,6 +25,8 @@ window.onload = function () {
   startbird.classList.add("bird");
   startbird.classList.add("bird11");
   startbird.classList.add("gen0");
+  startbird.classList.add("Dshortthick");
+  startbird.classList.add("Dbrown");
   startbird.id = "startbird";
   document.querySelector(".main").appendChild(startbird);
   document.getElementById("startbird").innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
@@ -56,6 +58,8 @@ function startSimulation() {
     bird.classList.add("bird")
     bird.classList.add("bird11");;
     bird.classList.add("gen0");
+    bird.classList.add("Dshortthick");
+    bird.classList.add("Dbrown");
 
     bird.id = "bird";
 
