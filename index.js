@@ -230,29 +230,46 @@ for (let i = 0; i < birds.length; i += 2) {
 //Beak traits
 
   // Randomly choose a class from each element
-  if (parent1.contains("Dshortthick") || parent2.contains("Dshortthick")){
-    if(parent1.contains("Dshortthick") || parent2.contains("Dshortthick")){
+  for (let i = 0; i < 3; i++) {
+    // code to be executed
+  
+  if (parent1.classList.contains("Dshortthick") || parent2.classList.contains("Dshortthick")){
+    if(parent1.classList.contains("Dshortthick") || parent2.classList.contains("Dshortthick")){
       const newbird = document.createElement('div');
       newbird.classList.add("Dshortthick");
       newbird.classList.add("Dshortthick");
+      newbird.classList.add("newbird11")
+      
+      document.querySelector(".main").appendChild(newbird);
     } 
    
   }
 
 
-
-  // Determine which class is dominant and which is recessive
-
-  // Create a new element with the dominant/recessive trait
-  const newElement = document.createElement('div');
-  newElement.classList.add(dominantClass);
-  newElement.classList.add(recessiveClass);
-
-  // Add the new element to the DOM
-  document.querySelector(".main").appendChild(bird);
 }
 
+}
 
+  var birdes11 = document.querySelectorAll(".newbird11");
+
+
+  birdes11.forEach(function (bird) {
+    bird.classList.add(genUp)
+    bird.classList.add("bird")
+    bird.id = "bird";
+    bird.innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
+
+    let x = Math.random() * 86;
+    x = Math.floor(x);
+
+    let y = Math.random() * 74;
+    y = Math.floor(y);
+
+
+    bird.style.left = x + "%";
+    bird.style.top = y + "%";
+
+  });
 
   }
 
