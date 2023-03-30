@@ -233,17 +233,80 @@ for (let i = 0; i < birds.length; i += 2) {
   for (let i = 0; i < 3; i++) {
     // code to be executed
   
-  if (parent1.classList.contains("Dshortthick") || parent2.classList.contains("Dshortthick")){
-    if(parent1.classList.contains("Dshortthick") || parent2.classList.contains("Dshortthick")){
+  if (parent1.classList.contains("DshortthickDshortthick")){ 
+    if(parent2.classList.contains("DshortthickDshortthick")){ //DshortthickDshortthick + DshortthickDshortthick
       const newbird = document.createElement('div');
-      newbird.classList.add("Dshortthick");
-      newbird.classList.add("Dshortthick");
+      newbird.classList.add("DshortthickDshortthick");        //= DshortthickDshortthick
       newbird.classList.add("newbird11")
-      
       document.querySelector(".main").appendChild(newbird);
-    } 
+
+    } else if(parent2.classList.contains("DshortthickRlongthin")){ //DshortthickDshortthick + DshortthickRlongthin
+      const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+      if(randomNumber === 1){                                        //= DshortthickRlongcurved
+      const newbird = document.createElement('div');
+      newbird.classList.add("DshortthickRlongthin");
+      newbird.classList.add("newbird11")
+      document.querySelector(".main").appendChild(newbird);
+    } else {                                                         //= DshortthickDshortthick 
+      const newbird = document.createElement('div')     
+      newbird.classList.add("DshortthickDshortthick");
+      newbird.classList.add("newbird11")
+      document.querySelector(".main").appendChild(newbird);}
+    } else if(parent2.classList.contains("DshortthickRlongcurved")){ //DshortthickDshortthick + DshortthickRlongcurved
+      const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+      if(randomNumber === 1){                                        //= DshortthickRlongcurved
+      const newbird = document.createElement('div');
+      newbird.classList.add("DshortthickRlongcurved");
+      newbird.classList.add("newbird11")
+      document.querySelector(".main").appendChild(newbird);
+    } else {                                                         //= DshortthickDshortthick
+      const newbird = document.createElement('div')     
+      newbird.classList.add("DshortthickDshortthick");
+      newbird.classList.add("newbird11")
+      document.querySelector(".main").appendChild(newbird);}
+  }
+   
+  } else   if (parent1.classList.contains("DlongthinDlongthin")){ 
+    if(parent2.classList.contains("DlongthinDlongthin")){ //DlongthinDlongthin + DlongthinDlongthin
+      const newbird = document.createElement('div');
+      newbird.classList.add("DlongthinDlongthin");        //= DlongthinDlongthin
+      newbird.classList.add("newbird11")
+      document.querySelector(".main").appendChild(newbird);
+
+    } else if(parent2.classList.contains("DlongthinRlongthin")){ //DlongthinDlongthin + DlongthinRlongthin
+      const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+      if(randomNumber === 1){                                        //= DlongthinRlongcurved
+      const newbird = document.createElement('div');
+      newbird.classList.add("DlongthinRlongthin");
+      newbird.classList.add("newbird11")
+      document.querySelector(".main").appendChild(newbird);
+    } else {                                                         //= DlongthinDlongthin 
+      const newbird = document.createElement('div')     
+      newbird.classList.add("DlongthinDlongthin");
+      newbird.classList.add("newbird11")
+      document.querySelector(".main").appendChild(newbird);}
+    } else if(parent2.classList.contains("DlongthinRlongcurved")){ //DlongthinDlongthin + DlongthinRlongcurved
+      const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+      if(randomNumber === 1){                                        //= DlongthinRlongcurved
+      const newbird = document.createElement('div');
+      newbird.classList.add("DlongthinRlongcurved");
+      newbird.classList.add("newbird11")
+      document.querySelector(".main").appendChild(newbird);
+    } else {                                                         //= DlongthinDlongthin
+      const newbird = document.createElement('div')     
+      newbird.classList.add("DlongthinDlongthin");
+      newbird.classList.add("newbird11")
+      document.querySelector(".main").appendChild(newbird);}
+  }
    
   }
+
+
+
 
 
 }
