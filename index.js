@@ -218,7 +218,7 @@ function birdReproduction() {
     
     addBirdAmount = addbird11Amount + addbird21Amount + addbird31Amount
   
-  console.log(addBirdAmount, "=addbirdamount") //
+  console.log(addBirdAmount, "=addbirdamount")
 
 // Get all the HTML birds you want to loop over
 const birds = document.querySelectorAll('.bird');
