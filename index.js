@@ -99,6 +99,7 @@ function startSimulation() {
       var width = 1;
       id = setInterval(frame, 50);//speed
       running = true;
+
       function frame() {
         if (width >= 100) {
           clearInterval(id);
@@ -134,6 +135,12 @@ function startSimulation() {
         } else {
           width++;
           elem.style.width = width + "%";
+          if(elem.style.width === "70%"){
+            console.log("predatorCheck")
+            if(isChecked === true ){
+             predators = true
+          Predators()}
+          }
           //console.log(elem.offsetWidth)
 
         }
@@ -630,6 +637,36 @@ function enableEnv(n) {
     });
     let size = "small";
     console.log("birdsize is reset to ", size)
+  }
+}
+var isChecked = false
+function enablePredators(){
+  var chxBox = document.querySelector(".switch");
+  isChecked = false; //false because the checkbox is unchecked on page load
+  chxBox.addEventListener("change", function(){
+  isChecked = isChecked ? false : true;
+  console.log(isChecked)
+  Predators()
+  })
+
+}
+
+
+function Predators(){
+  if(isChecked === true && predators === true){
+    console.log("gg")
+    var bar = document.getElementById("myBar").style.width
+  console.log(bar, "predator yesss")
+  
+  
+    
+    
+  if(bar >= "70%"){
+    console.log("ggboys")
+    
+    
+  
+  }
   }
 }
 
