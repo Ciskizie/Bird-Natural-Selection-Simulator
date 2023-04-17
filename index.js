@@ -5,14 +5,14 @@ let Generation = 0;
 //let MutationRate= 0.3; //IDK YET
 
 //traits (default settings: Short and thick beak(for seeds), Small size, Brown feathers)
-let beakForm = new Set(["Dshortthick"])  //["longthin","shortthick","longcurved"];
+let beakForm = new Set(["Dshortthick"])  //["longthin","shortthick"];
 
-let plumageColor = new Set(["Dbrown"]) //["brown","white","green"]; 
+let plumageColor = new Set(["Dbrown"]) //["brown","white"]; 
 
 //environment
-let availableFood = new Set(["Seeds"]); //["seeds","insects","nectar"];
+let availableFood = new Set(["Seeds"]); //["seeds","insects"];
 let predators = false;
-let area = "forest" //["forest","jungle","tundra"] 
+let area = "forest" //["forest","tundra"] 
 
 let addBirdAmount = 0
 
@@ -25,7 +25,7 @@ window.onload = function () {
   startbird.classList.add("bird");
   startbird.classList.add("bird11");
   startbird.classList.add("gen0");
-  startbird.classList.add("Dshortthick");
+  startbird.classList.add("DshortthickDshortthick");
   startbird.classList.add("Dbrown");
   startbird.id = "startbird";
   document.querySelector(".main").appendChild(startbird);
@@ -58,7 +58,7 @@ function startSimulation() {
     bird.classList.add("bird")
     bird.classList.add("bird11");;
     bird.classList.add("gen0");
-    bird.classList.add("Dshortthick");
+    bird.classList.add("DshortthickDshortthick");
     bird.classList.add("Dbrown");
 
     bird.id = "bird";
@@ -182,10 +182,7 @@ function birdTerminator() { //birds older than 2 generations DIE!
     console.log("rip shortthick beaks")
     document.querySelectorAll(".bird11").forEach(e => e.remove()); //!!!!! kills all birds with short thick beaks because there are no insects
   }
-  if (beakForm.has("longcurved") == true && availableFood.has("Nectar") == false) {
-    console.log("rip longcurved beaks")
-    document.querySelectorAll(".bird31").forEach(e => e.remove()); //!!!!! kills all birds with long curved beaks because there are no insects
-  }
+
 
 }
 
@@ -197,8 +194,8 @@ function birdReproduction() {
 
   let bird11Amount = document.getElementsByClassName("bird11").length
   let bird21Amount = document.getElementsByClassName("bird21").length
-  let bird31Amount = document.getElementsByClassName("bird31").length
-  let birdClassAmount = bird11Amount + bird21Amount + bird31Amount	
+
+  let birdClassAmount = bird11Amount + bird21Amount
   console.log(birdClassAmount,"birclassamount")
 
   if (birdClassAmount > 200) {
@@ -217,13 +214,13 @@ function birdReproduction() {
   } else {
     let bird11Count = bird11Amount *3
     let bird21Count = bird21Amount *3
-    let bird31Count = bird31Amount *3
+  
   
     let addbird11Amount = bird11Count - bird11Amount
     let addbird21Amount = bird21Count - bird21Amount
-    let addbird31Amount = bird31Count - bird31Amount
+
     
-    addBirdAmount = addbird11Amount + addbird21Amount + addbird31Amount
+    addBirdAmount = addbird11Amount + addbird21Amount
   
   console.log(addBirdAmount, "=addbirdamount")
 
@@ -234,6 +231,7 @@ const birds = document.querySelectorAll('.bird');
 for (let i = 0; i < birds.length; i += 2) {
   const parent1 = birds[i];
   const parent2 = birds[i + 1];
+  console.log(parent1,parent2)
 //Beak traits
 
   // Randomly choose a class from each element
@@ -241,74 +239,7 @@ for (let i = 0; i < birds.length; i += 2) {
     // code to be executed
   
   if (parent1.classList.contains("DshortthickDshortthick")){ 
-    if(parent2.classList.contains("DshortthickDshortthick")){ //DshortthickDshortthick + DshortthickDshortthick
-      const newbird = document.createElement('div');
-      newbird.classList.add("DshortthickDshortthick");        //= DshortthickDshortthick
-      newbird.classList.add("newbird11")
-      document.querySelector(".main").appendChild(newbird);
-
-    } else if(parent2.classList.contains("DshortthickRlongthin")){ //DshortthickDshortthick + DshortthickRlongthin
-      const randomNumber = Math.floor(Math.random() * 2) + 1;
-
-      if(randomNumber === 1){                                        //= DshortthickRlongcurved
-      const newbird = document.createElement('div');
-      newbird.classList.add("DshortthickRlongthin");
-      newbird.classList.add("newbird11")
-      document.querySelector(".main").appendChild(newbird);
-    } else {                                                         //= DshortthickDshortthick 
-      const newbird = document.createElement('div')     
-      newbird.classList.add("DshortthickDshortthick");
-      newbird.classList.add("newbird11")
-      document.querySelector(".main").appendChild(newbird);}
-    } else if(parent2.classList.contains("DshortthickRlongcurved")){ //DshortthickDshortthick + DshortthickRlongcurved
-      const randomNumber = Math.floor(Math.random() * 2) + 1;
-
-      if(randomNumber === 1){                                        //= DshortthickRlongcurved
-      const newbird = document.createElement('div');
-      newbird.classList.add("DshortthickRlongcurved");
-      newbird.classList.add("newbird11")
-      document.querySelector(".main").appendChild(newbird);
-    } else {                                                         //= DshortthickDshortthick
-      const newbird = document.createElement('div')     
-      newbird.classList.add("DshortthickDshortthick");
-      newbird.classList.add("newbird11")
-      document.querySelector(".main").appendChild(newbird);}
-  }
    
-  } else   if (parent1.classList.contains("DlongthinDlongthin")){ 
-    if(parent2.classList.contains("DlongthinDlongthin")){ //DlongthinDlongthin + DlongthinDlongthin
-      const newbird = document.createElement('div');
-      newbird.classList.add("DlongthinDlongthin");        //= DlongthinDlongthin
-      newbird.classList.add("newbird11")
-      document.querySelector(".main").appendChild(newbird);
-
-    } else if(parent2.classList.contains("DlongthinRlongthin")){ //DlongthinDlongthin + DlongthinRlongthin
-      const randomNumber = Math.floor(Math.random() * 2) + 1;
-
-      if(randomNumber === 1){                                        //= DlongthinRlongcurved
-      const newbird = document.createElement('div');
-      newbird.classList.add("DlongthinRlongthin");
-      newbird.classList.add("newbird11")
-      document.querySelector(".main").appendChild(newbird);
-    } else {                                                         //= DlongthinDlongthin 
-      const newbird = document.createElement('div')     
-      newbird.classList.add("DlongthinDlongthin");
-      newbird.classList.add("newbird11")
-      document.querySelector(".main").appendChild(newbird);}
-    } else if(parent2.classList.contains("DlongthinRlongcurved")){ //DlongthinDlongthin + DlongthinRlongcurved
-      const randomNumber = Math.floor(Math.random() * 2) + 1;
-
-      if(randomNumber === 1){                                        //= DlongthinRlongcurved
-      const newbird = document.createElement('div');
-      newbird.classList.add("DlongthinRlongcurved");
-      newbird.classList.add("newbird11")
-      document.querySelector(".main").appendChild(newbird);
-    } else {                                                         //= DlongthinDlongthin
-      const newbird = document.createElement('div')     
-      newbird.classList.add("DlongthinDlongthin");
-      newbird.classList.add("newbird11")
-      document.querySelector(".main").appendChild(newbird);}
-  }
    
   }
 
@@ -343,92 +274,7 @@ for (let i = 0; i < birds.length; i += 2) {
 
   }
 
-/*
-  console.log("inside function gen", Generation);
-  let birdClassAmount = document.getElementsByClassName("bird").length
-  let shortthickBirdAmount = document.getElementsByClassName("bird11").length
-  let longthinBirdAmount = document.getElementsByClassName("bird21").length
-  let longcurvedBirdAmount = document.getElementsByClassName("bird31").length
-  let birdClasssum = shortthickBirdAmount + longcurvedBirdAmount + longthinBirdAmount
 
-  console.log("CLASS bird AMOUNT", birdClassAmount, "birdclasssum", birdClasssum);
-
-  if (birdClassAmount > 250) {
-    let = randomFloat = Math.random() * (3.5 - 2.5) + 2.5;
-    console.log(randomFloat)
-
-    addBirdAmount = birdClassAmount / randomFloat //NIET GOED
-  } else {
-    birdCount = birdClassAmount * 3
-    console.log(birdCount, "this is birdCount")
-    addBirdAmount = birdCount - birdClassAmount;
-  }
-  console.log(addBirdAmount, "=addbirdamount")
-
-  let genUpS = "gen"
-  let genUpN = Generation; //!!!!!
-  let genUp = `${genUpS}${genUpN}`;
-  console.log(genUp, "genup");
-
-
-  for (var i = 0; i < addBirdAmount; i++) {
-    var bird = document.createElement("div");
-    bird.classList.add("bird")
-
-    if (beakForm.size == 1) {
-      if (beakForm.has("Dshortthick") || beakForm.has("Rshortthick")) {
-        bird.classList.add(new Array(...beakForm))
-        bird.classList.add("newbird11")
-      }
-      if (beakForm.has("Dlongthin") || beakForm.has("Rlongthin")) {
-        bird.classList.add(new Array(...beakForm))
-        bird.classList.add("newbird21")
-      }
-      if (beakForm.has("Dlongcurved") || beakForm.has("Rlongcurved")) {
-        bird.classList.add(new Array(...beakForm))
-        bird.classList.add("newbird31")
-      }
-    } else if(beakForm.size == 2){ 
-      if(beakForm.has("Dshortthick")){
-        if(beakForm.has("Rlongthin")){
-          let firstCheck = document.getElementsByClassName("Rlongthin").length
-          if(firstCheck >= 1){
-
-          }else{ 
-            
-          }
-          console.log(firstCheck)
-
-        } else if(beakForm.has("Rlongcurved")){
-          
-        }
-      } else if(beakForm.has("Dlongthin")){
-        if(beakForm.has("Rshortthick")){
-
-        } else if(beakForm.has("Rlongcurved")){
-          
-        }
-      }else if(beakForm.has("Dlongcurved")){
-        if(beakForm.has("Rlongthin")){
-
-        } else if(beakForm.has("Rshortthick")){
-          
-        }
-      }
-    }
-
-
-    bird.classList.add(genUp)
-
-    bird.classList.add(new Array(...plumageColor));
-    //console.log((new Array(...plumageColor).join(" ")))
-    bird.id = "bird";
-    //console.log(beakForm, plumageColor)
-
-
-    document.querySelector(".main").appendChild(bird);
-  }
-  */
   birdCount = document.getElementsByClassName("bird").length
   console.log("amount of birds is", birdCount);
   birdClassAmount = birdCount
@@ -468,21 +314,7 @@ for (let i = 0; i < birds.length; i += 2) {
 
   });
 
-  var birdes31 = document.querySelectorAll(".newbird31");
-  birdes31.forEach(function (bird) {
-    bird.innerHTML = '<img src="https://i.ibb.co/HFWJt7P/bird31.png" alt="bird31">';
 
-    let x = Math.random() * 86;
-    x = Math.floor(x);
-
-    let y = Math.random() * 74;
-    y = Math.floor(y);
-
-
-    bird.style.left = x + "%";
-    bird.style.top = y + "%";
-
-  });
   var oldbird11 = document.querySelectorAll(".newbird11");
   oldbird11.forEach(function (bird) {
     bird.classList.remove("newbird11")
@@ -493,11 +325,7 @@ for (let i = 0; i < birds.length; i += 2) {
     bird.classList.remove("newbird21")
     bird.classList.add("bird21")
   })
-  var oldbird31 = document.querySelectorAll(".newbird31");
-  oldbird31.forEach(function (bird) {
-    bird.classList.remove("newbird31")
-    bird.classList.add("bird31")
-  })
+
 
   if (birdClassAmount > 400) {
     let = randomFloat = Math.random() * (3.5 - 2.5) + 2.5;
@@ -529,7 +357,7 @@ function randomMutation(n){
 
 
 function enableBeak(n) {
-  if (n === 1 && !beakForm.has("Rlongthin")) {                                  //long and thin
+  if (n === 1 && !beakForm.has("Rlongthin") && !beakForm.has("Dshortthick")) {                                  //long and thin
     const btn = document.getElementById("bbtn1");
     btn.style.backgroundColor = "gray";
     console.log("Dlong and thin")
@@ -539,7 +367,7 @@ function enableBeak(n) {
 
     } else { }
 
-  } else if (n === 2 && !beakForm.has("Rshortthick")) {                           //short and thick
+  } else if (n === 2 && !beakForm.has("Rshortthick") && !beakForm.has("Dlongthin")) {                           //short and thick
     const btn = document.getElementById("bbtn2");
     btn.style.backgroundColor = "gray";
     console.log("Dshort and thick")
@@ -550,25 +378,14 @@ function enableBeak(n) {
 
     } else { }
 
-  } else if (n === 3 && !beakForm.has("Rlongcurved")) {                           //long and curved
-    const btn = document.getElementById("bbtn3");
-    btn.style.backgroundColor = "gray";
-    console.log("Dlong and curved")
-    beakForm.add("Dlongcurved")
-    if (availableFood.has("Nectar")) {
-      console.log("bird can eat nectar -> survive");
-
-
-    } else { }
-
-  } else if (n === 4 && !beakForm.has("Dlongthin")) {                           
+  }  else if (n === 4 && !beakForm.has("Dlongthin") && !beakForm.has("Rshortthick")) {                           
     const btn = document.getElementById("bbtn4");
     btn.style.backgroundColor = "gray";
     console.log("Rlong and thin")
     beakForm.add("Rlongthin")
 
 
-  } else if (n === 5 && !beakForm.has("Dshortthick")) {                          
+  } else if (n === 5 && !beakForm.has("Dshortthick")  && !beakForm.has("Rlongthin")) {                          
     const btn = document.getElementById("bbtn5");
     btn.style.backgroundColor = "gray";
     console.log("Rshort and thick")
@@ -576,14 +393,7 @@ function enableBeak(n) {
     console.log(beakForm)
 
 
-  } else if (n === 6 && !beakForm.has("Dlongcurved")) {                           
-    const btn = document.getElementById("bbtn6");
-    btn.style.backgroundColor = "gray";
-    console.log("Rlong and curved")
-    beakForm.add("Rlongcurved")
-
-
-  } else if (n === "reset") {
+  }  else if (n === "reset") {
     const btns = document.querySelectorAll(".beak-btn");
     btns.forEach(btn => {
       btn.style.backgroundColor = "";
@@ -605,12 +415,7 @@ function enableFood(m) {
     console.log(food)
     availableFood.add("Insects");
     console.log(availableFood)
-  } else if (m === 3) {
-    const food = document.getElementById("food3").value;
-    console.log(food)
-    availableFood.add("Nectar");
-    console.log(availableFood)
-  } else if (m === "reset") {
+  }  else if (m === "reset") {
     availableFood.clear()
     console.log(availableFood)
     const btns = document.querySelectorAll(".food-btn");
@@ -622,51 +427,37 @@ function enableFood(m) {
 }
 
 function enableColor(n) {
-  if (n === 1) {
+  if (n === 1  && !plumageColor.has("Rbrown") && !plumageColor.has("Dwhite")) {
     const btn = document.getElementById("cbtn1");
     btn.style.backgroundColor = "sienna";
-    console.log("brown")
-    plumageColor.add("brown")
+    console.log("Dbrown")
+    plumageColor.add("Dbrown")
 
-  } else if (n === 4 ) {
+  } else if (n === 4 && !plumageColor.has("Dbrown") && !plumageColor.has("Rwhite")) {
     const btn = document.getElementById("cbtn4");
     btn.style.backgroundColor = "sienna";
-    console.log("brown")
-    plumageColor.add("brown")
+    console.log("Rbrown")
+    plumageColor.add("Rbrown")
 
-  } else if (n === 2) {
+  } else if (n === 2 && !plumageColor.has("Dbrown") && !plumageColor.has("Rwhite")) {
     const btn = document.getElementById("cbtn2");
     btn.style.backgroundColor = "";
-    console.log("white")
-    plumageColor.add("white")
+    console.log("Dwhite")
+    plumageColor.add("Dwhite")
 
-  } else if (n === 5) {
+  } else if (n === 5 && !plumageColor.has("Rbrown") && !plumageColor.has("Dwhite")) {
     const btn = document.getElementById("cbtn5");
     btn.style.backgroundColor = "";
-    console.log("white")
-    plumageColor.add("white")
-
-  } else if (n === 3) {
-    const btn = document.getElementById("cbtn3");
-    btn.style.backgroundColor = "limegreen";
-    console.log("green")
-    plumageColor.add("green")
-
-  } else if (n === 6) {
-    const btn = document.getElementById("cbtn6");
-    btn.style.backgroundColor = "limegreen";
-    console.log("green")
-    plumageColor.add("green")
+    console.log("Rwhite")
+    plumageColor.add("Rwhite")
 
   } else if (n === "reset") {
     const btns = document.querySelectorAll(".color-btn");
     btns.forEach(btn => {
       cbtn1.style.backgroundColor = "saddlebrown";
       cbtn2.style.backgroundColor = "white";
-      cbtn3.style.backgroundColor = "lime";
       cbtn4.style.backgroundColor = "saddlebrown";
       cbtn5.style.backgroundColor = "white";
-      cbtn6.style.backgroundColor = "lime";
     });
     plumageColor.clear()
     console.log("plumageColor is reset to ", plumageColor);
@@ -686,13 +477,7 @@ function enableEnv(n) {
     btn.style.backgroundColor = "gray";
     document.getElementById("simulationBackground").innerHTML = '<img src="https://i.pinimg.com/736x/b5/0e/d3/b50ed315eb512a081ec97ec5c8cf04ea.jpg">';
 
-  } else if (n === 3) {                           //jungle
-    const btn = document.getElementById("Jungle");
-    btn.style.backgroundColor = "gray";
-    document.getElementById("simulationBackground").innerHTML = '<img src="https://i.imgur.com/KpQjTkh.png">';
-
-
-  } else if (n === "reset") {
+  }  else if (n === "reset") {
     const btns = document.querySelectorAll(".env-btn");
     btns.forEach(btn => {
       btn.style.backgroundColor = "";

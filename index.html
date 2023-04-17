@@ -24,6 +24,7 @@
         <h2 style="margin-bottom:-10px;margin-top: -5px;">INFO:</h2><br>
          - To start the simulation press the <span class="bolded">"Add Mate"</span> button.<br>
          - The Mutations and Environmental factors can be changed by pressing their corresponding buttons on the right.<br>
+         - There can only be <span class="bolded">one</span> Dominant and <span class="bolded">one</span> Recessive trait in each category.<br>
         - Mutations cannot be reset after the simulation starts.<br><br>
         <span class="bolded">This message will disappear when the simulation is started</span>
       </div>
@@ -137,14 +138,14 @@
                 
                 <button id="bbtn2" class="beak-btn" onclick="enableBeak(2)" style="width:100%;padding: 5px;background-color:gray ;;">Short and thick</button><br>
                 <button id="bbtn1" class="beak-btn" onclick="enableBeak(1)" style="width:100%;padding: 5px;margin-top: 5px;">Long and thin</button> <br>
-                <button id="bbtn3" class="beak-btn" onclick="enableBeak(3)" style="width:100%;padding: 5px;margin-top: 5px;">Long and curved</button> <br>
+
 
               </div>
             <div style="width:49%;float: right;"> Recessive<br>
 
               <button id="bbtn5" class="beak-btn" onclick="enableBeak(5)" style="width:100%;padding: 5px;">Short and thick</button><br><!--goed voor zaden te eten-->
               <button id="bbtn4" class="beak-btn" onclick="enableBeak(4)" style="width:100%;padding: 5px;margin-top: 5px;">Long and thin</button><br><!--goed voor insecten te eten-->
-              <button id="bbtn6" class="beak-btn" onclick="enableBeak(6)" style="width:100%;padding: 5px;margin-top: 5px;">Long and curved</button><br> <!--goed voor nectar te eten-->
+
 
             </div><br>
 
@@ -156,14 +157,13 @@
                 
               <button id="cbtn1" class="color-btn" onclick="enableColor(1)" style="width:100%;padding: 5px;background-color:sienna ;">Brown</button><br>
               <button id="cbtn2" class="color-btn" onclick="enableColor(2)" style="width:100%;padding: 5px;background-color: white;margin-top: 5px;">White</button><br>
-              <button id="cbtn3" class="color-btn" onclick="enableColor(3)" style="width:100%;padding: 5px;background-color: lime;margin-top: 5px;">Green</button><br>
 
             </div>
           <div style="width:49%;float: right;"> Recessive<br>
 
             <button id="cbtn4" class="color-btn" onclick="enableColor(4)" style="width:100%;padding: 5px;background-color:saddlebrown ;">Brown</button><br>
             <button id="cbtn5" class="color-btn" onclick="enableColor(5)" style="width:100%;padding: 5px;background-color: white;margin-top: 5px;">White</button><br>
-            <button id="cbtn6" class="color-btn" onclick="enableColor(6)" style="width:100%;padding: 5px;background-color: lime;margin-top: 5px;">Green</button><br>
+
 
           </div><br>
 
@@ -185,8 +185,7 @@
             <input type="radio" id="food2" class="food-btn" value="Insects" onclick="enableFood(2)">
             <label for="f2">Insects</label><br>
 
-            <input type="radio" id="food3" class="food-btn" value="Nectar" onclick="enableFood(3)">
-            <label for="f3">Nectar</label><br>
+
             <button onclick="enableFood('reset')">Reset</button>
           </div><br>
 
@@ -196,7 +195,7 @@
                 <input type="radio" id="Forest" name="simBackground" value="Forest" onclick="enableEnv(1)"
                   checked="checked"> Forest <br>
                 <input type="radio" id="Tundra" name="simBackground" value="Tundra" onclick="enableEnv(2)"> Tundra <br>
-                <input type="radio" id="Jungle" name="simBackground" value="Jungle" onclick="enableEnv(3)"> Jungle <br>
+
                 <form>
             </div>
           </div>
@@ -225,13 +224,11 @@
     <h2>Created By Youssouf & Cisse</h2><br>
     <img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11" border="0"></a>
     <img src="https://i.ibb.co/sqXD6KC/bird12.png" alt="bird12" border="0"></a>
-    <img src="https://i.ibb.co/v4cgNg0/bird13.png" alt="bird13" border="0"></a>
+
     <img src="https://i.ibb.co/87zqMjv/bird21.png" alt="bird21" border="0"></a>
-    <img src="https://i.ibb.co/XYHG6nf/bird22.png" alt="bird22" border="0"></a>
-    <img src="https://i.ibb.co/FwJ1WwR/bird23.png" alt="bird23" border="0"></a>
-    <img src="https://i.ibb.co/HFWJt7P/bird31.png" alt="bird31" border="0"></a>
-    <img src="https://i.ibb.co/kQ4LTY8/bird32.png" alt="bird32" border="0"></a>
-    <a href="https://www.youtube.com/watch?v=mx86-rTclzA"><img src="https://i.ibb.co/kQBRpWj/bird133.png" alt="bird33" border="0"></a><br />
+
+    <a href="https://www.youtube.com/watch?v=mx86-rTclzA">  <img src="https://i.ibb.co/XYHG6nf/bird22.png" alt="bird22" border="0"></a></a>
+    <img src="https://i.ibb.co/QP0SZ1y/ezgif-com-gif-maker-2.gifAA" alt="ezgif-com-gif-maker-2" border="0"><br />
   </div>
   <script>
     var coll = document.getElementsByClassName("collapsible");
