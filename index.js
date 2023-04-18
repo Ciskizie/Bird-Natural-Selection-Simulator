@@ -238,10 +238,31 @@ for (let i = 0; i < birds.length; i += 2) {
   for (let i = 0; i < 3; i++) {
     // code to be executed
   
-  if (parent1.classList.contains("DshortthickDshortthick")){ 
-   
-   
-  }
+
+     if (beakForm.has("Dshortthick") && !beakForm.has("Rlongthin")){
+      console.log(beakForm)
+      if(parent1.classList.contains("DshortthickDshortthick")){
+        const newbird = document.createElement('div');
+        newbird.classList.add("DshortthickDshortthick");        //= DshortthickDshortthick
+        newbird.classList.add("newbird11")
+        document.querySelector(".main").appendChild(newbird);
+      }     
+    
+
+     } else if (beakForm.has("Dshortthick") && beakForm.has("Rlongthin")){
+      console.log(beakForm)
+     } else if (beakForm.has("Dlongthin") && !beakForm.has("Rshortthick")){
+      console.log(beakForm)
+     } else if (beakForm.has("Dlongthin") && beakForm.has("Rshortthick")){
+      console.log(beakForm)
+     } else if (beakForm.has("Rlongthin") && !beakForm.has("Dshortthick")){
+      console.log(beakForm)
+
+     } else if (beakForm.has("Rshortthick") && !beakForm.has("Dlongthin")){
+      console.log(beakForm)
+
+     } 
+
 
 
 
