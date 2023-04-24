@@ -241,29 +241,40 @@ for (let i = 0; i < birds.length; i += 2) {
     if (typeof parent1 != 'undefined' && typeof parent2 != 'undefined') {
      
   
-     if (beakForm.has("Dshortthick") && !beakForm.has("Rlongthin")){
-      console.log(beakForm)
+ 
+      
       if(parent1.classList.contains("DshortthickDshortthick") && parent2.classList.contains("DshortthickDshortthick")){
+        console.log(beakForm)
         const newbird = document.createElement('div');
-        newbird.classList.add("DshortthickDshortthick");        //= DshortthickDshortthick
+        newbird.classList.add("DshortthickDshortthick");        //= DshortthickDshortthick   1
         newbird.classList.add("newbird11")
         document.querySelector(".main").appendChild(newbird);
-      }     
-    
+      } else  if(parent1.classList.contains("DlongthinDlongthin") && parent2.classList.contains("DlongthinDlongthin")){
+        const newbird = document.createElement('div');
+        newbird.classList.add("DlongthinDlongthin");        //= DlongthinDlongthin   2
+        newbird.classList.add("newbird21")
+        document.querySelector(".main").appendChild(newbird);
 
-     } else if (beakForm.has("Dshortthick") && beakForm.has("Rlongthin")){
-      console.log(beakForm)
-     } else if (beakForm.has("Dlongthin") && !beakForm.has("Rshortthick")){
-      console.log(beakForm)
-     } else if (beakForm.has("Dlongthin") && beakForm.has("Rshortthick")){
-      console.log(beakForm)
-     } else if (beakForm.has("Rlongthin") && !beakForm.has("Dshortthick")){
-      console.log(beakForm)
+      }else if(parent1.classList.contains("DshortthickRlongthin") && parent2.classList.contains("DshortthickDshortthick")){
+        const newbird = document.createElement('div');
+        // Generate a random number between 1 and 2 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 2) + 1;
 
-     } else if (beakForm.has("Rshortthick") && !beakForm.has("Dlongthin")){
-      console.log(beakForm)
+        // Output the result to the console
+        console.log(randomNumber);
+        if(randomNumber === 1){
+          newbird.classList.add("DshortthickRlongthin");        //= DlongthinRlongthin   3
+          newbird.classList.add("newbird21")
 
-     } 
+        } else {
+        newbird.classList.add("DshortthickDshortthick");        //= DlongthinRlongthin   3
+        newbird.classList.add("newbird11")
+  
+      }
+        document.querySelector(".main").appendChild(newbird);
+
+      } 
+
     }else {
       console.log(parent1,parent2,"no bird found!")
       const parent3 = birds[i];
@@ -394,12 +405,11 @@ for (let i = 0; i < birds.length; i += 2) {
 }
 
 function randomMutation(n){
- if(n ===1){ //Dshortthick Rlongthin
-  var firstElementWithClass = document.querySelector('.Rlongthin2');
-  firstElementWithClass.classList.add("newbird21")
-  firstElementWithClass.classList.add("Rlongthin2")
-  firstElementWithClass.classList.add("Dshortthick1")
-
+ if(n === 4){ //Rlongthin
+  var firstElementWithClass = document.querySelector('.bird');
+  firstElementWithClass.classList.remove("DshortthickDshortthick")
+  firstElementWithClass.classList.add("DshortthickRlongthin")
+ console.log(firstElementWithClass)
 
   console.log("RANDOMMUTATION")
  }
@@ -407,40 +417,43 @@ function randomMutation(n){
 
 
 function enableBeak(n) {
-  if (n === 1 && !beakForm.has("Rlongthin") && !beakForm.has("Dshortthick")) {                                  //long and thin
+  if (n === 1 && !beakForm.has("Rlongthin") && !beakForm.has("Dshortthick")) {                                  //Dlong and thin
     const btn = document.getElementById("bbtn1");
     btn.style.backgroundColor = "gray";
     console.log("Dlong and thin")
     beakForm.add("Dlongthin")
+    randomMutation(2)
     if (availableFood.has("Insects")) {
       console.log("bird can eat insects -> survive");
 
     } else { }
 
-  } else if (n === 2 && !beakForm.has("Rshortthick") && !beakForm.has("Dlongthin")) {                           //short and thick
+  } else if (n === 2 && !beakForm.has("Rshortthick") && !beakForm.has("Dlongthin")) {                           //Dshort and thick
     const btn = document.getElementById("bbtn2");
     btn.style.backgroundColor = "gray";
     console.log("Dshort and thick")
     beakForm.add("Dshortthick")
-    
+    randomMutation(1)
     if (availableFood.has("Seeds")) {
       console.log("bird can eat seeds -> survive");
 
     } else { }
 
-  }  else if (n === 4 && !beakForm.has("Dlongthin") && !beakForm.has("Rshortthick")) {                           
+  }  else if (n === 4 && !beakForm.has("Dlongthin") && !beakForm.has("Rshortthick")) {                         //Rlong and thin        
     const btn = document.getElementById("bbtn4");
     btn.style.backgroundColor = "gray";
     console.log("Rlong and thin")
     beakForm.add("Rlongthin")
+    randomMutation(4)
 
 
-  } else if (n === 5 && !beakForm.has("Dshortthick")  && !beakForm.has("Rlongthin")) {                          
+  } else if (n === 5 && !beakForm.has("Dshortthick")  && !beakForm.has("Rlongthin")) {                        //Rshort and thick  
     const btn = document.getElementById("bbtn5");
     btn.style.backgroundColor = "gray";
     console.log("Rshort and thick")
     beakForm.add("Rshortthick")
     console.log(beakForm)
+    randomMutation(3)
 
 
   }  else if (n === "reset") {
