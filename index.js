@@ -97,7 +97,7 @@ function startSimulation() {
       i = 1;
       var elem = document.getElementById("myBar");
       var width = 1;
-      id = setInterval(frame, 50);//speed
+      id = setInterval(frame, 30);//speed
       running = true;
 
       function frame() {
@@ -150,7 +150,7 @@ function startSimulation() {
             running = false;
             this.innerHTML = "Resume"
           } else {
-            id = setInterval(frame, 50);//speed
+            id = setInterval(frame, 30);//speed
             running = true;
             this.innerHTML = "Pause"
           }
@@ -242,20 +242,45 @@ for (let i = 0; i < birds.length; i += 2) {
      
   
  
-      
-      if(parent1.classList.contains("DshortthickDshortthick") && parent2.classList.contains("DshortthickDshortthick")){
+      //SIT1
+      if(parent1.classList.contains("DshortthickDshortthick")){
+
+        if(parent2.classList.contains("DshortthickDshortthick")){ //AA+AA
         console.log(beakForm)
         const newbird = document.createElement('div');
         newbird.classList.add("DshortthickDshortthick");        //= DshortthickDshortthick   1
         newbird.classList.add("newbird11")
         document.querySelector(".main").appendChild(newbird);
-      } else  if(parent1.classList.contains("DlongthinDlongthin") && parent2.classList.contains("DlongthinDlongthin")){
+
+        }else if(parent2.classList.contains("DshortthickRlongthin")){  //AA+Aa
+          const newbird = document.createElement('div');
+        // Generate a random number between 1 and 2 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+        // Output the result to the console
+        console.log(randomNumber);
+        if(randomNumber === 1){
+          newbird.classList.add("DshortthickRlongthin");        
+          newbird.classList.add("newbird11")
+
+        } else {
+        newbird.classList.add("DshortthickDshortthick");        
+        newbird.classList.add("newbird11")
+  
+      }
+        document.querySelector(".main").appendChild(newbird);
+      }else if(parent2.classList.contains("RlongthinRlongthin")){  //AA+aa
+        console.log(beakForm)
         const newbird = document.createElement('div');
-        newbird.classList.add("DlongthinDlongthin");        //= DlongthinDlongthin   2
-        newbird.classList.add("newbird21")
+        newbird.classList.add("DshortthickRlongthin");        
+        newbird.classList.add("newbird11")
         document.querySelector(".main").appendChild(newbird);
 
-      }else if(parent1.classList.contains("DshortthickRlongthin") && parent2.classList.contains("DshortthickDshortthick")){
+      }
+      
+      }else if(parent1.classList.contains("DshortthickRlongthin")){
+
+      if(parent2.classList.contains("DshortthickDshortthick")){ //Aa+AA
         const newbird = document.createElement('div');
         // Generate a random number between 1 and 2 (inclusive)
         const randomNumber = Math.floor(Math.random() * 2) + 1;
@@ -263,45 +288,498 @@ for (let i = 0; i < birds.length; i += 2) {
         // Output the result to the console
         console.log(randomNumber);
         if(randomNumber === 1){
-          newbird.classList.add("DshortthickRlongthin");        //= DlongthinRlongthin   3
-          newbird.classList.add("newbird21")
+          newbird.classList.add("DshortthickRlongthin");        
+          newbird.classList.add("newbird11")
 
         } else {
-        newbird.classList.add("DshortthickDshortthick");        //= DlongthinRlongthin   3
+        newbird.classList.add("DshortthickDshortthick");        
         newbird.classList.add("newbird11")
   
       }
         document.querySelector(".main").appendChild(newbird);
+      }else if(parent2.classList.contains("DshortthickRlongthin")){  //Aa+Aa
+        const newbird = document.createElement('div');
+        // Generate a random number between 1 and 4 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 4) + 1;
 
-      } 
+        // Output the result to the console
+        console.log(randomNumber);
+
+      // Output the result to the console
+      console.log(randomNumber);
+      if(randomNumber === 1){
+        newbird.classList.add("RlongthinRlongthin");       //aa 25% 
+        newbird.classList.add("newbird21")
+
+      } else if(randomNumber === 2){
+        newbird.classList.add("DshortthickDshortthick");    //AA 25%     
+        newbird.classList.add("newbird11")
+
+      } else if(randomNumber === 3 || randomNumber === 4){  //Aa 50% 
+        newbird.classList.add("DshortthickRlongthin");        
+        newbird.classList.add("newbird11")
+
+      }
+      document.querySelector(".main").appendChild(newbird);
+    }else if(parent2.classList.contains("RlongthinRlongthin")){  //Aa+aa
+      const newbird = document.createElement('div');
+      // Generate a random number between 1 and 2 (inclusive)
+      const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+      // Output the result to the console
+      console.log(randomNumber);
+      if(randomNumber === 1){
+        newbird.classList.add("DshortthickRlongthin");        
+        newbird.classList.add("newbird11")
+
+      } else {
+      newbird.classList.add("RlongthinRlongthin");        
+      newbird.classList.add("newbird21")
+
+    }
+      document.querySelector(".main").appendChild(newbird);
+    }
+    
+      }else if(parent1.classList.contains("RlongthinRlongthin")){
+
+    if(parent2.classList.contains("DshortthickDshortthick")){ //aa+AA
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("DshortthickRlongthin");        
+    newbird.classList.add("newbird11")
+    document.querySelector(".main").appendChild(newbird);
+
+    }else if(parent2.classList.contains("DshortthickRlongthin")){  //aa+Aa
+      const newbird = document.createElement('div');
+    // Generate a random number between 1 and 2 (inclusive)
+    const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+    // Output the result to the console
+    console.log(randomNumber);
+    if(randomNumber === 1){
+      newbird.classList.add("DshortthickRlongthin");        
+      newbird.classList.add("newbird11")
+
+    } else {
+    newbird.classList.add("RlongthinRlongthin");        
+    newbird.classList.add("newbird21")
+
+  }
+    document.querySelector(".main").appendChild(newbird);
+  }else if(parent2.classList.contains("RlongthinRlongthin")){  //aa+aa
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("RlongthinRlongthin");        
+    newbird.classList.add("newbird21")
+    document.querySelector(".main").appendChild(newbird);
+
+  }
+
+  //SIT2
+} else if(parent1.classList.contains("DlongthinDlongthin")){
+  if(parent2.classList.contains("DlongthinDlongthin")){
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("DlongthinDlongthin");        
+    newbird.classList.add("newbird21")
+    document.querySelector(".main").appendChild(newbird);
+
+  } else if(parent2.classList.contains("DlongthinRshortthick")){ //AA+Aa
+    const newbird = document.createElement('div');
+    // Generate a random number between 1 and 2 (inclusive)
+    const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+    // Output the result to the console
+    console.log(randomNumber);
+    if(randomNumber === 1){
+      newbird.classList.add("DlongthinRshortthick");        
+      newbird.classList.add("newbird21")
+
+    } else {
+    newbird.classList.add("DlongthinDlongthin");        
+    newbird.classList.add("newbird21")
+
+  }
+    document.querySelector(".main").appendChild(newbird);
+  } else if(parent2.classList.contains("RshortthickRshortthick")){ //AA+aa
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("DlongthinRshortthick");        
+    newbird.classList.add("newbird21")
+    document.querySelector(".main").appendChild(newbird);
+
+  }
+} else if(parent1.classList.contains("DlongthinRshortthick")){
+
+      if(parent2.classList.contains("DlongthinDlongthin")){ //Aa+AA
+        const newbird = document.createElement('div');
+        // Generate a random number between 1 and 2 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+        // Output the result to the console
+        console.log(randomNumber);
+        if(randomNumber === 1){
+          newbird.classList.add("DlongthinRshortthick");        
+          newbird.classList.add("newbird21")
+
+        } else {
+        newbird.classList.add("DlongthinDlongthin");        
+        newbird.classList.add("newbird21")
+  
+      }
+        document.querySelector(".main").appendChild(newbird);
+      }else if(parent2.classList.contains("DlongthinRshortthick")){  //Aa+Aa
+        const newbird = document.createElement('div');
+        // Generate a random number between 1 and 4 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 4) + 1;
+
+        // Output the result to the console
+        console.log(randomNumber);
+
+      // Output the result to the console
+      console.log(randomNumber);
+      if(randomNumber === 1){
+        newbird.classList.add("RshortthickRshortthick");       //aa 25% 
+        newbird.classList.add("newbird11")
+
+      } else if(randomNumber === 2){
+        newbird.classList.add("DlongthinDlongthin");    //AA 25%     
+        newbird.classList.add("newbird21")
+
+      } else if(randomNumber === 3 || randomNumber === 4){  //Aa 50% 
+        newbird.classList.add("DlongthinRshortthick");        
+        newbird.classList.add("newbird21")
+
+      }
+      document.querySelector(".main").appendChild(newbird);
+    }else if(parent2.classList.contains("RshortthickRshortthick")){  //Aa+aa
+      const newbird = document.createElement('div');
+      // Generate a random number between 1 and 2 (inclusive)
+      const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+      // Output the result to the console
+      console.log(randomNumber);
+      if(randomNumber === 1){
+        newbird.classList.add("DlongthinRshortthick");        
+        newbird.classList.add("newbird21")
+
+      } else {
+      newbird.classList.add("RshortthickRshortthick");        
+      newbird.classList.add("newbird11")
+
+    }
+      document.querySelector(".main").appendChild(newbird);
+    }
+    
+      }else if(parent1.classList.contains("RshortthickRshortthick")){
+
+    if(parent2.classList.contains("DlongthinDlongthin")){ //aa+AA
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("DlongthinRshortthick");        
+    newbird.classList.add("newbird21")
+    document.querySelector(".main").appendChild(newbird);
+
+    }else if(parent2.classList.contains("DlongthinRshortthick")){  //aa+Aa
+      const newbird = document.createElement('div');
+    // Generate a random number between 1 and 2 (inclusive)
+    const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+    // Output the result to the console
+    console.log(randomNumber);
+    if(randomNumber === 1){
+      newbird.classList.add("DlongthinRshortthick");        
+      newbird.classList.add("newbird21")
+
+    } else {
+    newbird.classList.add("RshortthickRshortthick");        
+    newbird.classList.add("newbird11")
+
+  }
+    document.querySelector(".main").appendChild(newbird);
+  }else if(parent2.classList.contains("RshortthickRshortthick")){  //aa+aa
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("RshortthickRshortthick");        
+    newbird.classList.add("newbird11")
+    document.querySelector(".main").appendChild(newbird);
+
+  }
+} 
+
+
+
+
+
+
 
     }else {
       console.log(parent1,parent2,"no bird found!")
       const parent3 = birds[i];
       console.log(parent3)
-      if (beakForm.has("Dshortthick") && !beakForm.has("Rlongthin")){
+      if(parent1.classList.contains("DshortthickDshortthick")){
+
+        if(parent3.classList.contains("DshortthickDshortthick")){ //AA+AA
         console.log(beakForm)
-        if(parent1.classList.contains("DshortthickDshortthick") && parent3.classList.contains("DshortthickDshortthick")){
+        const newbird = document.createElement('div');
+        newbird.classList.add("DshortthickDshortthick");        //= DshortthickDshortthick   1
+        newbird.classList.add("newbird11")
+        document.querySelector(".main").appendChild(newbird);
+
+        }else if(parent3.classList.contains("DshortthickRlongthin")){  //AA+Aa
           const newbird = document.createElement('div');
-          newbird.classList.add("DshortthickDshortthick");        //= DshortthickDshortthick
+        // Generate a random number between 1 and 2 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+        // Output the result to the console
+        console.log(randomNumber);
+        if(randomNumber === 1){
+          newbird.classList.add("DshortthickRlongthin");        
           newbird.classList.add("newbird11")
-          document.querySelector(".main").appendChild(newbird);
-        }     
+
+        } else {
+        newbird.classList.add("DshortthickDshortthick");        
+        newbird.classList.add("newbird11")
+  
+      }
+        document.querySelector(".main").appendChild(newbird);
+      }else if(parent3.classList.contains("RlongthinRlongthin")){  //AA+aa
+        console.log(beakForm)
+        const newbird = document.createElement('div');
+        newbird.classList.add("DshortthickRlongthin");        
+        newbird.classList.add("newbird11")
+        document.querySelector(".main").appendChild(newbird);
+
+      }
       
+      }else if(parent1.classList.contains("DshortthickRlongthin")){
+
+      if(parent3.classList.contains("DshortthickDshortthick")){ //Aa+AA
+        const newbird = document.createElement('div');
+        // Generate a random number between 1 and 2 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+        // Output the result to the console
+        console.log(randomNumber);
+        if(randomNumber === 1){
+          newbird.classList.add("DshortthickRlongthin");        
+          newbird.classList.add("newbird11")
+
+        } else {
+        newbird.classList.add("DshortthickDshortthick");        
+        newbird.classList.add("newbird11")
   
-       } else if (beakForm.has("Dshortthick") && beakForm.has("Rlongthin")){
-        console.log(beakForm)
-       } else if (beakForm.has("Dlongthin") && !beakForm.has("Rshortthick")){
-        console.log(beakForm)
-       } else if (beakForm.has("Dlongthin") && beakForm.has("Rshortthick")){
-        console.log(beakForm)
-       } else if (beakForm.has("Rlongthin") && !beakForm.has("Dshortthick")){
-        console.log(beakForm)
+      }
+        document.querySelector(".main").appendChild(newbird);
+      }else if(parent3.classList.contains("DshortthickRlongthin")){  //Aa+Aa
+        const newbird = document.createElement('div');
+        // Generate a random number between 1 and 4 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 4) + 1;
+
+        // Output the result to the console
+        console.log(randomNumber);
+
+      // Output the result to the console
+      console.log(randomNumber);
+      if(randomNumber === 1){
+        newbird.classList.add("RlongthinRlongthin");       //aa 25% 
+        newbird.classList.add("newbird21")
+
+      } else if(randomNumber === 2){
+        newbird.classList.add("DshortthickDshortthick");    //AA 25%     
+        newbird.classList.add("newbird11")
+
+      } else if(randomNumber === 3 || randomNumber === 4){  //Aa 50% 
+        newbird.classList.add("DshortthickRlongthin");        
+        newbird.classList.add("newbird11")
+
+      }
+      document.querySelector(".main").appendChild(newbird);
+    }else if(parent3.classList.contains("RlongthinRlongthin")){  //Aa+aa
+      const newbird = document.createElement('div');
+      // Generate a random number between 1 and 2 (inclusive)
+      const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+      // Output the result to the console
+      console.log(randomNumber);
+      if(randomNumber === 1){
+        newbird.classList.add("DshortthickRlongthin");        
+        newbird.classList.add("newbird11")
+
+      } else {
+      newbird.classList.add("RlongthinRlongthin");        
+      newbird.classList.add("newbird21")
+
+    }
+      document.querySelector(".main").appendChild(newbird);
+    }
+    
+      }else if(parent1.classList.contains("RlongthinRlongthin")){
+
+    if(parent3.classList.contains("DshortthickDshortthick")){ //aa+AA
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("DshortthickRlongthin");        
+    newbird.classList.add("newbird11")
+    document.querySelector(".main").appendChild(newbird);
+
+    }else if(parent3.classList.contains("DshortthickRlongthin")){  //aa+Aa
+      const newbird = document.createElement('div');
+    // Generate a random number between 1 and 2 (inclusive)
+    const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+    // Output the result to the console
+    console.log(randomNumber);
+    if(randomNumber === 1){
+      newbird.classList.add("DshortthickRlongthin");        
+      newbird.classList.add("newbird11")
+
+    } else {
+    newbird.classList.add("RlongthinRlongthin");        
+    newbird.classList.add("newbird21")
+
+  }
+    document.querySelector(".main").appendChild(newbird);
+  }else if(parent3.classList.contains("RlongthinRlongthin")){  //aa+aa
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("RlongthinRlongthin");        
+    newbird.classList.add("newbird21")
+    document.querySelector(".main").appendChild(newbird);
+
+  }
   
-       } else if (beakForm.has("Rshortthick") && !beakForm.has("Dlongthin")){
-        console.log(beakForm)
+ //SIT2
+} else if(parent1.classList.contains("DlongthinDlongthin")){
+  if(parent3.classList.contains("DlongthinDlongthin")){
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("DlongthinDlongthin");        
+    newbird.classList.add("newbird21")
+    document.querySelector(".main").appendChild(newbird);
+
+  } else if(parent3.classList.contains("DlongthinRshortthick")){ //AA+Aa
+    const newbird = document.createElement('div');
+    // Generate a random number between 1 and 2 (inclusive)
+    const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+    // Output the result to the console
+    console.log(randomNumber);
+    if(randomNumber === 1){
+      newbird.classList.add("DlongthinRshortthick");        
+      newbird.classList.add("newbird21")
+
+    } else {
+    newbird.classList.add("DlongthinDlongthin");        
+    newbird.classList.add("newbird21")
+
+  }
+    document.querySelector(".main").appendChild(newbird);
+  } else if(parent3.classList.contains("RshortthickRshortthick")){ //AA+aa
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("DlongthinRshortthick");        
+    newbird.classList.add("newbird21")
+    document.querySelector(".main").appendChild(newbird);
+
+  }
+} else if(parent1.classList.contains("DlongthinRshortthick")){
+
+      if(parent3.classList.contains("DlongthinDlongthin")){ //Aa+AA
+        const newbird = document.createElement('div');
+        // Generate a random number between 1 and 2 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+        // Output the result to the console
+        console.log(randomNumber);
+        if(randomNumber === 1){
+          newbird.classList.add("DlongthinRshortthick");        
+          newbird.classList.add("newbird21")
+
+        } else {
+        newbird.classList.add("DlongthinDlongthin");        
+        newbird.classList.add("newbird21")
   
-       } 
+      }
+        document.querySelector(".main").appendChild(newbird);
+      }else if(parent3.classList.contains("DlongthinRshortthick")){  //Aa+Aa
+        const newbird = document.createElement('div');
+        // Generate a random number between 1 and 4 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 4) + 1;
+
+        // Output the result to the console
+        console.log(randomNumber);
+
+      // Output the result to the console
+      console.log(randomNumber);
+      if(randomNumber === 1){
+        newbird.classList.add("RshortthickRshortthick");       //aa 25% 
+        newbird.classList.add("newbird11")
+
+      } else if(randomNumber === 2){
+        newbird.classList.add("DlongthinDlongthin");    //AA 25%     
+        newbird.classList.add("newbird21")
+
+      } else if(randomNumber === 3 || randomNumber === 4){  //Aa 50% 
+        newbird.classList.add("DlongthinRshortthick");        
+        newbird.classList.add("newbird21")
+
+      }
+      document.querySelector(".main").appendChild(newbird);
+    }else if(parent3.classList.contains("RshortthickRshortthick")){  //Aa+aa
+      const newbird = document.createElement('div');
+      // Generate a random number between 1 and 2 (inclusive)
+      const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+      // Output the result to the console
+      console.log(randomNumber);
+      if(randomNumber === 1){
+        newbird.classList.add("DlongthinRshortthick");        
+        newbird.classList.add("newbird21")
+
+      } else {
+      newbird.classList.add("RshortthickRshortthick");        
+      newbird.classList.add("newbird11")
+
+    }
+      document.querySelector(".main").appendChild(newbird);
+    }
+    
+      }else if(parent1.classList.contains("RshortthickRshortthick")){
+
+    if(parent3.classList.contains("DlongthinDlongthin")){ //aa+AA
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("DlongthinRshortthick");        
+    newbird.classList.add("newbird21")
+    document.querySelector(".main").appendChild(newbird);
+
+    }else if(parent3.classList.contains("DlongthinRshortthick")){  //aa+Aa
+      const newbird = document.createElement('div');
+    // Generate a random number between 1 and 2 (inclusive)
+    const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+    // Output the result to the console
+    console.log(randomNumber);
+    if(randomNumber === 1){
+      newbird.classList.add("DlongthinRshortthick");        
+      newbird.classList.add("newbird21")
+
+    } else {
+    newbird.classList.add("RshortthickRshortthick");        
+    newbird.classList.add("newbird11")
+
+  }
+    document.querySelector(".main").appendChild(newbird);
+  }else if(parent3.classList.contains("RshortthickRshortthick")){  //aa+aa
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("RshortthickRshortthick");        
+    newbird.classList.add("newbird11")
+    document.querySelector(".main").appendChild(newbird);
+
+  }
+} 
     }
 
 
@@ -342,25 +820,12 @@ for (let i = 0; i < birds.length; i += 2) {
 
 
 
-  var birdes11 = document.querySelectorAll(".newbird11");
 
-
-  birdes11.forEach(function (bird) {
-    bird.innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
-
-    let x = Math.random() * 86;
-    x = Math.floor(x);
-
-    let y = Math.random() * 74;
-    y = Math.floor(y);
-
-
-    bird.style.left = x + "%";
-    bird.style.top = y + "%";
-
-  });
   var birdes21 = document.querySelectorAll(".newbird21");
   birdes21.forEach(function (bird) {
+    bird.classList.add(genUp)
+    bird.classList.add("bird")
+    bird.id = "bird";
     bird.innerHTML = '<img src="https://i.ibb.co/87zqMjv/bird21.png" alt="bird21">';
 
     let x = Math.random() * 86;
@@ -406,11 +871,28 @@ for (let i = 0; i < birds.length; i += 2) {
 
 function randomMutation(n){
  if(n === 4){ //Rlongthin
-  var firstElementWithClass = document.querySelector('.bird');
+  var firstElementWithClass = document.querySelector('.DshortthickDshortthick');
+  if(firstElementWithClass.classList.contains("DshortthickDshortthick")){
   firstElementWithClass.classList.remove("DshortthickDshortthick")
   firstElementWithClass.classList.add("DshortthickRlongthin")
  console.log(firstElementWithClass)
-
+}
+  console.log("RANDOMMUTATION")
+ }else if(n === 2){ //Dlongthin
+  var firstElementWithClass = document.querySelector('.DshortthickDshortthick');
+  if(firstElementWithClass.classList.contains("DshortthickDshortthick")){
+  firstElementWithClass.classList.remove("DshortthickDshortthick")
+  firstElementWithClass.classList.add("DlongthinDlongthin")
+ console.log(firstElementWithClass)
+}
+  console.log("RANDOMMUTATION")
+ }else if(n === 3){ //Rshortthick
+  var firstElementWithClass = document.querySelector('.DshortthickDshortthick');
+  if(firstElementWithClass.classList.contains("DshortthickDshortthick")){
+  firstElementWithClass.classList.remove("DshortthickDshortthick")
+  firstElementWithClass.classList.add("DlongthinRshortthick")
+ console.log(firstElementWithClass)
+}
   console.log("RANDOMMUTATION")
  }
 }

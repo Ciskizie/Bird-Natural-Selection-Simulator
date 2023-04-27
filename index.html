@@ -72,7 +72,16 @@
               fill: false,
               borderColor: 'rgb(75, 192, 192)',
 
-              stepped: true
+              stepped: true,
+
+            },{
+              label: 'Birds with short and thick beak',
+              data: [1],
+              fill: false,
+              borderColor: 'rgb(255, 0, 0)',
+
+              stepped: true,
+
             }]
           };
           //config chart
@@ -80,10 +89,29 @@
             type: 'line',
             data: data,
             options: {
+              
+              scales: {
+                
+                y: {
+                  ticks: {
+                    precision:0
+                    },
+                  title: {
+                    display: true,
+                  text: "Amount of birds"
+                  
+                }},
+                x: {
+                  title: {
+                    display: true,
+                  text: "Generation"
+                }}
+              },
               responsive: true,
               interaction: {
                 intersect: false,
-                axis: 'x'
+                axis: 'x',
+              
               },
               "plugins": {
                 "legend": {
@@ -91,8 +119,11 @@
                   "position": "left",
                   "align": "start"
                 }
+
               }
+              
             }
+
           };
           //render chart
           var chart = new Chart(document.getElementById("myChart"), config);
