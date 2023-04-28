@@ -26,7 +26,7 @@ window.onload = function () {
   startbird.classList.add("bird11");
   startbird.classList.add("gen0");
   startbird.classList.add("DshortthickDshortthick");
-  startbird.classList.add("Dbrown");
+  startbird.classList.add("DbrownDbrown");
   startbird.id = "startbird";
   document.querySelector(".main").appendChild(startbird);
   document.getElementById("startbird").innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
@@ -59,7 +59,7 @@ function startSimulation() {
     bird.classList.add("bird11");;
     bird.classList.add("gen0");
     bird.classList.add("DshortthickDshortthick");
-    bird.classList.add("Dbrown");
+    bird.classList.add("DbrownDbrown");
 
     bird.id = "bird";
 
@@ -242,7 +242,7 @@ for (let i = 0; i < birds.length; i += 2) {
      
   
  
-      //SIT1
+      //SIT1 BEAK
       if(parent1.classList.contains("DshortthickDshortthick")){
 
         if(parent2.classList.contains("DshortthickDshortthick")){ //AA+AA
@@ -375,8 +375,8 @@ for (let i = 0; i < birds.length; i += 2) {
 
   }
 
-  //SIT2
-} else if(parent1.classList.contains("DlongthinDlongthin")){
+  //SIT2 BEAK
+      } else if(parent1.classList.contains("DlongthinDlongthin")){
   if(parent2.classList.contains("DlongthinDlongthin")){
     console.log(beakForm)
     const newbird = document.createElement('div');
@@ -409,7 +409,7 @@ for (let i = 0; i < birds.length; i += 2) {
     document.querySelector(".main").appendChild(newbird);
 
   }
-} else if(parent1.classList.contains("DlongthinRshortthick")){
+      } else if(parent1.classList.contains("DlongthinRshortthick")){
 
       if(parent2.classList.contains("DlongthinDlongthin")){ //Aa+AA
         const newbird = document.createElement('div');
@@ -507,7 +507,273 @@ for (let i = 0; i < birds.length; i += 2) {
   }
 } 
 
+// COLOR
 
+      //SIT1 COLOR
+      if(parent1.classList.contains("DbrownDbrown")){
+console.log("yeehaw")
+        if(parent2.classList.contains("DbrownDbrown")){ //AA+AA
+        console.log(beakForm)
+        const newbird = document.createElement('div');
+        newbird.classList.add("DbrownDbrown");        //= DbrownDbrown   1
+        newbird.classList.add("newbird11")
+        document.querySelector(".main").appendChild(newbird);
+
+        }else if(parent2.classList.contains("DbrownRwhite")){  //AA+Aa
+          const newbird = document.createElement('div');
+        // Generate a random number between 1 and 2 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+        // Output the result to the console
+        console.log(randomNumber);
+        if(randomNumber === 1){
+          newbird.classList.add("DbrownRwhite");        
+          newbird.classList.add("newbird11")
+
+        } else {
+        newbird.classList.add("DbrownDbrown");        
+        newbird.classList.add("newbird11")
+  
+      }
+        document.querySelector(".main").appendChild(newbird);
+      }else if(parent2.classList.contains("RwhiteRwhite")){  //AA+aa
+        console.log(beakForm)
+        const newbird = document.createElement('div');
+        newbird.classList.add("DbrownRwhite");        
+        newbird.classList.add("newbird11")
+        document.querySelector(".main").appendChild(newbird);
+
+      }
+      
+      }else if(parent1.classList.contains("DbrownRwhite")){
+
+      if(parent2.classList.contains("DbrownDbrown")){ //Aa+AA
+        const newbird = document.createElement('div');
+        // Generate a random number between 1 and 2 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+        // Output the result to the console
+        console.log(randomNumber);
+        if(randomNumber === 1){
+          newbird.classList.add("DbrownRwhite");        
+          newbird.classList.add("newbird11")
+
+        } else {
+        newbird.classList.add("DbrownDbrown");        
+        newbird.classList.add("newbird11")
+  
+      }
+        document.querySelector(".main").appendChild(newbird);
+      }else if(parent2.classList.contains("DbrownRwhite")){  //Aa+Aa
+        const newbird = document.createElement('div');
+        // Generate a random number between 1 and 4 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 4) + 1;
+
+        // Output the result to the console
+        console.log(randomNumber);
+
+      // Output the result to the console
+      console.log(randomNumber);
+      if(randomNumber === 1){
+        newbird.classList.add("RwhiteRwhite");       //aa 25% 
+        newbird.classList.add("newbird12")
+
+      } else if(randomNumber === 2){
+        newbird.classList.add("DbrownDbrown");    //AA 25%     
+        newbird.classList.add("newbird11")
+
+      } else if(randomNumber === 3 || randomNumber === 4){  //Aa 50% 
+        newbird.classList.add("DbrownRwhite");        
+        newbird.classList.add("newbird11")
+
+      }
+      document.querySelector(".main").appendChild(newbird);
+    }else if(parent2.classList.contains("RwhiteRwhite")){  //Aa+aa
+      const newbird = document.createElement('div');
+      // Generate a random number between 1 and 2 (inclusive)
+      const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+      // Output the result to the console
+      console.log(randomNumber);
+      if(randomNumber === 1){
+        newbird.classList.add("DbrownRwhite");        
+        newbird.classList.add("newbird11")
+
+      } else {
+      newbird.classList.add("RwhiteRwhite");        
+      newbird.classList.add("newbird12")
+
+    }
+      document.querySelector(".main").appendChild(newbird);
+    }
+    
+      }else if(parent1.classList.contains("RwhiteRwhite")){
+
+    if(parent2.classList.contains("DbrownDbrown")){ //aa+AA
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("DbrownRwhite");        
+    newbird.classList.add("newbird11")
+    document.querySelector(".main").appendChild(newbird);
+
+    }else if(parent2.classList.contains("DbrownRwhite")){  //aa+Aa
+      const newbird = document.createElement('div');
+    // Generate a random number between 1 and 2 (inclusive)
+    const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+    // Output the result to the console
+    console.log(randomNumber);
+    if(randomNumber === 1){
+      newbird.classList.add("DbrownRwhite");        
+      newbird.classList.add("newbird11")
+
+    } else {
+    newbird.classList.add("RwhiteRwhite");        
+    newbird.classList.add("newbird12")
+
+  }
+    document.querySelector(".main").appendChild(newbird);
+  }else if(parent2.classList.contains("RwhiteRwhite")){  //aa+aa
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("RwhiteRwhite");        
+    newbird.classList.add("newbird12")
+    document.querySelector(".main").appendChild(newbird);
+
+  }
+
+  //SIT2 BEAK
+} else if(parent1.classList.contains("DwhiteDwhite")){
+  if(parent2.classList.contains("DwhiteDwhite")){
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("DwhiteDwhite");        
+    newbird.classList.add("newbird12")
+    document.querySelector(".main").appendChild(newbird);
+
+  } else if(parent2.classList.contains("DwhiteRbrown")){ //AA+Aa
+    const newbird = document.createElement('div');
+    // Generate a random number between 1 and 2 (inclusive)
+    const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+    // Output the result to the console
+    console.log(randomNumber);
+    if(randomNumber === 1){
+      newbird.classList.add("DwhiteRbrown");        
+      newbird.classList.add("newbird12")
+
+    } else {
+    newbird.classList.add("DwhiteDwhite");        
+    newbird.classList.add("newbird12")
+
+  }
+    document.querySelector(".main").appendChild(newbird);
+  } else if(parent2.classList.contains("RbrownRbrown")){ //AA+aa
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("DwhiteRbrown");        
+    newbird.classList.add("newbird12")
+    document.querySelector(".main").appendChild(newbird);
+
+  }
+} else if(parent1.classList.contains("DwhiteRbrown")){
+
+      if(parent2.classList.contains("DwhiteDwhite")){ //Aa+AA
+        const newbird = document.createElement('div');
+        // Generate a random number between 1 and 2 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+        // Output the result to the console
+        console.log(randomNumber);
+        if(randomNumber === 1){
+          newbird.classList.add("DwhiteRbrown");        
+          newbird.classList.add("newbird12")
+
+        } else {
+        newbird.classList.add("DwhiteDwhite");        
+        newbird.classList.add("newbird12")
+  
+      }
+        document.querySelector(".main").appendChild(newbird);
+      }else if(parent2.classList.contains("DwhiteRbrown")){  //Aa+Aa
+        const newbird = document.createElement('div');
+        // Generate a random number between 1 and 4 (inclusive)
+        const randomNumber = Math.floor(Math.random() * 4) + 1;
+
+        // Output the result to the console
+        console.log(randomNumber);
+
+      // Output the result to the console
+      console.log(randomNumber);
+      if(randomNumber === 1){
+        newbird.classList.add("RbrownRbrown");       //aa 25% 
+        newbird.classList.add("newbird11")
+
+      } else if(randomNumber === 2){
+        newbird.classList.add("DwhiteDwhite");    //AA 25%     
+        newbird.classList.add("newbird12")
+
+      } else if(randomNumber === 3 || randomNumber === 4){  //Aa 50% 
+        newbird.classList.add("DwhiteRbrown");        
+        newbird.classList.add("newbird12")
+
+      }
+      document.querySelector(".main").appendChild(newbird);
+    }else if(parent2.classList.contains("RbrownRbrown")){  //Aa+aa
+      const newbird = document.createElement('div');
+      // Generate a random number between 1 and 2 (inclusive)
+      const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+      // Output the result to the console
+      console.log(randomNumber);
+      if(randomNumber === 1){
+        newbird.classList.add("DwhiteRbrown");        
+        newbird.classList.add("newbird12")
+
+      } else {
+      newbird.classList.add("RbrownRbrown");        
+      newbird.classList.add("newbird11")
+
+    }
+      document.querySelector(".main").appendChild(newbird);
+    }
+    
+      }else if(parent1.classList.contains("RbrownRbrown")){
+
+    if(parent2.classList.contains("DwhiteDwhite")){ //aa+AA
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("DwhiteRbrown");        
+    newbird.classList.add("newbird12")
+    document.querySelector(".main").appendChild(newbird);
+
+    }else if(parent2.classList.contains("DwhiteRbrown")){  //aa+Aa
+      const newbird = document.createElement('div');
+    // Generate a random number between 1 and 2 (inclusive)
+    const randomNumber = Math.floor(Math.random() * 2) + 1;
+
+    // Output the result to the console
+    console.log(randomNumber);
+    if(randomNumber === 1){
+      newbird.classList.add("DwhiteRbrown");        
+      newbird.classList.add("newbird12")
+
+    } else {
+    newbird.classList.add("RbrownRbrown");        
+    newbird.classList.add("newbird11")
+
+  }
+    document.querySelector(".main").appendChild(newbird);
+  }else if(parent2.classList.contains("RbrownRbrown")){  //aa+aa
+    console.log(beakForm)
+    const newbird = document.createElement('div');
+    newbird.classList.add("RbrownRbrown");        
+    newbird.classList.add("newbird11")
+    document.querySelector(".main").appendChild(newbird);
+
+  }
+} 
+//COLOR
 
 
 
@@ -840,6 +1106,25 @@ for (let i = 0; i < birds.length; i += 2) {
 
   });
 
+  var birdes12 = document.querySelectorAll(".newbird12");
+  birdes12.forEach(function (bird) {
+    bird.classList.add(genUp)
+    bird.classList.add("bird")
+    bird.id = "bird";
+    bird.innerHTML = '<img src="https://i.ibb.co/87zqMjv/bird21.png" alt="bird12">';
+
+    let x = Math.random() * 86;
+    x = Math.floor(x);
+
+    let y = Math.random() * 74;
+    y = Math.floor(y);
+
+
+    bird.style.left = x + "%";
+    bird.style.top = y + "%";
+
+  });
+
 
   var oldbird11 = document.querySelectorAll(".newbird11");
   oldbird11.forEach(function (bird) {
@@ -891,6 +1176,33 @@ function randomMutation(n){
   if(firstElementWithClass.classList.contains("DshortthickDshortthick")){
   firstElementWithClass.classList.remove("DshortthickDshortthick")
   firstElementWithClass.classList.add("DlongthinRshortthick")
+ console.log(firstElementWithClass)
+}
+  console.log("RANDOMMUTATION")
+ }else if(n === 5){ //Dbrown
+
+  console.log("RANDOMMUTATION")
+ }else if(n === 6){ //Rbrown
+  var firstElementWithClass = document.querySelector('.DbrownDbrown');
+  if(firstElementWithClass.classList.contains("DbrownDbrown")){
+  firstElementWithClass.classList.remove("DbrownDbrown")
+  firstElementWithClass.classList.add("DWhiteRbrown")
+ console.log(firstElementWithClass)
+}
+  console.log("RANDOMMUTATION")
+ }else if(n === 7){ //Dwhite
+  var firstElementWithClass = document.querySelector('.DbrownDbrown');
+  if(firstElementWithClass.classList.contains("DbrownDbrown")){
+  firstElementWithClass.classList.remove("DbrownDbrown")
+  firstElementWithClass.classList.add("DWhiteDWhite")
+ console.log(firstElementWithClass)
+}
+  console.log("RANDOMMUTATION")
+ }else if(n === 8){ //Rwhite
+  var firstElementWithClass = document.querySelector('.DbrownDbrown');
+  if(firstElementWithClass.classList.contains("DbrownDbrown")){
+  firstElementWithClass.classList.remove("DbrownDbrown")
+  firstElementWithClass.classList.add("DbrownRwhite")
  console.log(firstElementWithClass)
 }
   console.log("RANDOMMUTATION")
@@ -977,24 +1289,26 @@ function enableColor(n) {
     btn.style.backgroundColor = "sienna";
     console.log("Dbrown")
     plumageColor.add("Dbrown")
+    randomMutation(5)
 
   } else if (n === 4 && !plumageColor.has("Dbrown") && !plumageColor.has("Rwhite")) {
     const btn = document.getElementById("cbtn4");
     btn.style.backgroundColor = "sienna";
     console.log("Rbrown")
     plumageColor.add("Rbrown")
-
+    randomMutation(6)
   } else if (n === 2 && !plumageColor.has("Dbrown") && !plumageColor.has("Rwhite")) {
     const btn = document.getElementById("cbtn2");
     btn.style.backgroundColor = "";
     console.log("Dwhite")
     plumageColor.add("Dwhite")
-
+    randomMutation(7)
   } else if (n === 5 && !plumageColor.has("Rbrown") && !plumageColor.has("Dwhite")) {
     const btn = document.getElementById("cbtn5");
     btn.style.backgroundColor = "";
     console.log("Rwhite")
     plumageColor.add("Rwhite")
+    randomMutation(8)
 
   } else if (n === "reset") {
     const btns = document.querySelectorAll(".color-btn");
