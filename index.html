@@ -75,10 +75,18 @@
               stepped: true,
 
             },{
-              label: 'Birds with short and thick beak',
+              label: 'Birds with short and thick beaks',
               data: [1],
               fill: false,
               borderColor: 'rgb(255, 0, 0)',
+
+              stepped: true,
+
+            },{
+              label: 'Birds with long and thin beaks',
+              data: [0],
+              fill: false,
+              borderColor: 'rgb(0, 255, 0)',
 
               stepped: true,
 
@@ -128,12 +136,11 @@
           //render chart
           var chart = new Chart(document.getElementById("myChart"), config);
 
-          function addData(chart, label, data) {
+          function addData(chart, label, data, i) {
 
             chart.data.labels.push(label);
-            chart.data.datasets.forEach((dataset) => {
-              dataset.data.push(data);
-            });
+            chart.data.datasets[i].data.push(data);
+            
             chart.update();
           }
 

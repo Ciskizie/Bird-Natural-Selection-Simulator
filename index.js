@@ -133,7 +133,12 @@ function startSimulation() {
               return
             }
             birdCount = document.getElementsByClassName("bird").length
-            addData(chart, [Generation], [birdCount])
+            addData(chart, [Generation], [birdCount], 0)
+            var birdCountST = document.getElementsByClassName("bird11").length + document.getElementsByClassName("bird12").length
+            console.log(birdCountST,'shortthickguys')
+            addData(chart, [Generation], [birdCountST], 1)
+            var birdCountST = document.getElementsByClassName("bird11").length + document.getElementsByClassName("bird12").length
+            addData(chart, [Generation], [birdCountST], 2)
             progressBar(); // call the function again to loop
 
           } else {
