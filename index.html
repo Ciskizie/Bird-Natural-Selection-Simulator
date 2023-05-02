@@ -57,7 +57,7 @@
       </div>
 
 
-      <div style="background: white;" class="card">
+      <div style="background: white;" class="card chartbox">
         <h2>GRAFIEK</h2>
         <canvas id="myChart"></canvas>
 
@@ -87,6 +87,22 @@
               data: [0],
               fill: false,
               borderColor: 'rgb(0, 255, 0)',
+
+              stepped: true,
+
+            },{
+              label: 'White Birds',
+              data: [0],
+              fill: false,
+              borderColor: 'rgb(140, 140, 140)',
+
+              stepped: true,
+
+            },{
+              label: 'Brown Birds',
+              data: [1],
+              fill: false,
+              borderColor: 'rgb(102, 51, 0)',
 
               stepped: true,
 
@@ -136,13 +152,15 @@
           //render chart
           var chart = new Chart(document.getElementById("myChart"), config);
 
-          function addData(chart, label, data, i) {
-
-            chart.data.labels.push(label);
-            chart.data.datasets[i].data.push(data);
-            
-            chart.update();
-          }
+          function addData(chart, label,data0, data1, data2, data3, data4) { 
+            chart.data.labels.push(label); 
+            chart.data.datasets[0].data.push(data0); 
+            chart.data.datasets[1].data.push(data1); 
+            chart.data.datasets[2].data.push(data2); 
+            chart.data.datasets[3].data.push(data3); 
+            chart.data.datasets[4].data.push(data4); 
+            chart.update(); // <--- this could be moved after datasets changes 
+          } 
 
           function removeData(chart) {
             chart.data.labels.pop();

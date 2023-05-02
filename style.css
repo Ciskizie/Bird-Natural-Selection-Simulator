@@ -37,6 +37,14 @@ z-index: 1;
   
   /* parent width - box width */
 }
+.bird:hover {
+  width: 20%;
+z-index: 2;
+  position: absolute;
+  
+  /* parent width - box width */
+}
+
 .predator{
   z-index: 2;
   width: 30%;

@@ -1,6 +1,10 @@
 //const { plugins } = require("chart.js");
 
 let birdCount = 1; //finches
+var birdCountST = 1
+var birdCountLT = 0
+var birdCountW = 0
+var birdCountB = 1
 let Generation = 0;
 //let MutationRate= 0.3; //IDK YET
 
@@ -132,13 +136,18 @@ function startSimulation() {
               document.getElementById("title").innerHTML = "All birds have died 💀   <br>(Refresh the page to try again)"
               return
             }
+            
             birdCount = document.getElementsByClassName("bird").length
-            addData(chart, [Generation], [birdCount], 0)
-            var birdCountST = document.getElementsByClassName("bird11").length + document.getElementsByClassName("bird12").length
+           
+            birdCountST = document.getElementsByClassName("bird11").length + document.getElementsByClassName("bird12").length
             console.log(birdCountST,'shortthickguys')
-            addData(chart, [Generation], [birdCountST], 1)
-            var birdCountST = document.getElementsByClassName("bird11").length + document.getElementsByClassName("bird12").length
-            addData(chart, [Generation], [birdCountST], 2)
+            
+            birdCountLT = document.getElementsByClassName("bird21").length + document.getElementsByClassName("bird22").length
+           
+            birdCountW = document.getElementsByClassName("bird12").length + document.getElementsByClassName("bird22").length
+           
+            birdCountB = document.getElementsByClassName("bird21").length + document.getElementsByClassName("bird11").length
+            addData(chart, [Generation], [birdCount], [birdCountST], [birdCountLT], [birdCountW], [birdCountB])
             progressBar(); // call the function again to loop
 
           } else {
@@ -15578,7 +15587,7 @@ for (let i = 0; i < birds.length; i += 2) {
     bird.classList.add(genUp)
     bird.classList.add("bird")
     bird.id = "bird";
-    bird.innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11">';
+    bird.innerHTML = '<img src="https://i.ibb.co/wW5cDpV/bird11.png" alt="bird11" >';
 
     let x = Math.random() * 86;
     x = Math.floor(x);
@@ -15591,7 +15600,16 @@ for (let i = 0; i < birds.length; i += 2) {
     bird.style.top = y + "%";
 
   });
+  var doublebird = document.querySelectorAll(".bird")
 
+  doublebird.forEach(function (bird) {
+    
+    if(bird.classList.contains("newbird11") && bird.classList.contains("newbird21")){
+      console.log(bird,"doubletrouble")
+    bird.classList.remove("newbird11")
+
+  }
+});
   var birdes21 = document.querySelectorAll(".newbird21");
   birdes21.forEach(function (bird) {
     bird.classList.add(genUp)
