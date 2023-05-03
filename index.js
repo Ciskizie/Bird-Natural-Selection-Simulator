@@ -199,7 +199,7 @@ function birdTerminator() { //birds older than 2 generations DIE!
     console.log("rip longthin beaks")
     document.querySelectorAll(".bird21").forEach(e => e.remove()); //!!!!! kills all birds with long thin beaks because there are no insects
   }
-  if (beakForm.has("shortthick") == true && availableFood.has("Seeds") == false) {
+  if (beakForm.has("Rshortthick" || "Dshortthick") == true && availableFood.has("Seeds") == false) {
     console.log("rip shortthick beaks")
     document.querySelectorAll(".bird11").forEach(e => e.remove()); //!!!!! kills all birds with short thick beaks because there are no insects
   }
